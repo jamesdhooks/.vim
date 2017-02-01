@@ -112,7 +112,7 @@ filetype plugin indent on    " required
 colorscheme superduper
 if has('win32')
     set guifont=DejaVu_Sans_Mono:h10
-elseif has('mac)
+elseif has('mac')
     set guifont=Monaco:h12
 endif
 

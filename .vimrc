@@ -77,7 +77,7 @@ Plugin 'nerdtree'
 " Easy Color
 Plugin 'EasyColour'
 " Tag Highlight
-Plugin 'TagHighlight'
+"Plugin 'TagHighlight'
 
 " syntax highlighting
 "Plugin 'syntastic'
@@ -109,12 +109,12 @@ filetype plugin indent on    " required
 
 " ================ Visual Settings ================
 "colorscheme molokai
-colorscheme superduper
-if has('win32')
-    set guifont=DejaVu_Sans_Mono:h10
-elseif has('mac')
-    set guifont=Monaco:h12
-endif0
+"colorscheme superduper
+"if has('win32')
+"    set guifont=DejaVu_Sans_Mono:h10
+"elseif has('mac')
+"    set guifont=Monaco:h12
+"endif
 
 " ================ Nerd Tree ================
 " Open Nerd Tree with <Leader>n

@@ -114,7 +114,7 @@ if has('win32')
     set guifont=DejaVu_Sans_Mono:h10
 elseif has('mac')
     set guifont=Monaco:h12
-endif
+endif0
 
 " ================ Nerd Tree ================
 " Open Nerd Tree with <Leader>n

@@ -110,8 +110,11 @@ filetype plugin indent on    " required
 " ================ Visual Settings ================
 "colorscheme molokai
 colorscheme superduper
-"set guifont=Monaco:h12
-set guifont=DejaVu_Sans_Mono:h10
+if has('win32')
+    set guifont=DejaVu_Sans_Mono:h10
+elseif has('mac)
+    set guifont=Monaco:h12
+endif
 
 " ================ Nerd Tree ================
 " Open Nerd Tree with <Leader>n

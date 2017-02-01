@@ -1,0 +1,90 @@
+# Saving this file will update the current colour scheme.
+Basis:None
+Colours:
+	DarkGrey:#1b1d1e
+	MidGrey:#7D8C93
+	LightGrey:#E0E2E4
+
+	Orange:#FD951F
+	PinkRed:#F62D73
+	LightYellow:#E6DB74
+
+	DarkBlue:#1E90FF
+	MidBlue:#79ABFF
+	LightBlue:#BED6FF
+	Undef:#FF00FF
+	Green:#A6E22E
+	
+	Test:#0014aa
+Dark:
+	Normal:LightGrey,DarkGrey
+	Comment:MidGrey
+	NonText:@Comment
+	LineNr:@Comment
+	#DoxygenKeyword:
+	#DocygenTable:
+	#DocygenTableLines:
+	#LinkComment:
+	Constant:PinkRed
+	Statement:@Constant
+	Conditional:@Constant
+	Operator:@Statement
+	String:LightYellow
+	Character:@String
+	Identifier:Orange
+	Function:Undef	
+	Method:Undef
+	Class:Undef
+	LocalVariable:MidBlue
+	GlobalVariable:@LocalVariable
+	GlobalConstant:@LocalVariable
+	StorageClass:Orange
+	PreProc:Green
+	Include:@PreProc
+	PreCondit:@PreProc
+	Exception:@PreProc
+	Define,Macro:DarkBlue,Style=Bold
+	Type:DarkBlue
+	Special:@Type
+	SpecialKey:@Type
+	Repeat:Undef
+	Label:Undef
+	DefinedName:Undef
+	EnumerationValue:Undef
+	EnumerationName:Undef
+	Member:Undef
+	Union:Undef
+	Structure:Undef
+	SpecialChar:Undef
+	MatchParen:LightYellow
+	Error:LightGrey,PinkRed
+	NonIndentTabError:SP=LightYellow,Style=Undercurl
+	Todo:DarkBlue,LightBlue
+	FoldColumn:@Todo
+	Pmenu:Undef
+	StatusLine:LightGrey,MidGrey
+	StatusLineNC:@StatusLine
+	VertSplit:MidBlue
+	SpellBad:Style=Undercurl,SP=PinkRed
+	SignColumn:@StatusLine
+	Title:Undef
+	htmlH1:DarkBlue
+	htmlH2:@htmlH1
+	htmlH3:@htmlH1
+	htmlH4:@htmlH1
+	htmlH5:@htmlH1
+	htmlH6:@htmlH1
+	Delimiter:LightBlue
+	hlLevel0:@Delimiter
+	hlLevel1:@Delimiter
+	hlLevel2:@Delimiter
+	hlLevel3:@Delimiter
+	hlLevel4:@Delimiter
+	hlLevel5:@Delimiter
+	hlLevel6:@Delimiter
+	hlLevel7:@Delimiter
+	hlLevel8:@Delimiter
+	hlLevel9:@Delimiter
+
+
+

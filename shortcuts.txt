@@ -2,9 +2,16 @@ Vim:
 /, search, * forward, # backwards
  v, new split window
 gf, go file, for linking .vimrc with source C:/.../.vimrc
+viwp, replace word with yanked word
 
 NerdTree:
 gs, split vertical
+
+Syntastic
+:SyntasticCheck
+
+TagHightlight
+:UpdateTypesFile
 
 Git:
 add -u, adds all modified files

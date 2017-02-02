@@ -80,10 +80,10 @@ Plugin 'EasyColour'
 Plugin 'TagHighlight'
 
 " Checkstyle
-Plugin 'java_checkstyle.vim'
+"Plugin 'java_checkstyle.vim'
 
 " syntax highlighting
-"Plugin 'syntastic'
+Plugin 'syntastic'
 
 " coffee script
 "Plugin 'vim-coffee-script'
@@ -139,22 +139,29 @@ let g:syntastic_auto_jump=0
 "show the error list automatically
 let g:syntastic_auto_loc_list=1
 "don't care about warnings
-let g:syntastic_quiet_warnings=0
+let g:syntastic_quiet_messages={'level': 'warnings'}
 
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let b:syntastic_skip_checks = 0
+let g:syntastic_debug = 8
 
-let g:syntastic_java_javac_classpath ='/Users/jameshooks/Dropbox/School/csc207/CSC207A1/bin/classes'
+" Checkers
+let g:syntastic_java_checkers = ['checkstyle']
+let g:syntastic_java_checkstyle_classpath = '~/.vim/checkstyle-7.5-all.jar'
+let g:syntastic_java_checkstyle_conf_file = '~/.vim/checks.xml'
+let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes':['java']}
+
+
+"let g:syntastic_java_javac_classpath='/Users/jameshooks/Dropbox/School/csc207/hooksjam*'
 "let g:syntastic_java_javac_classpath = 'C:\Users\LABIMD05\workspace\szz_lib\*;C:\Users\LABIMD05\workspace\backhoe-nomvn2\bin\classes'
-let g:syntastic_java_javac_delete_output = 0
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_mode_map = { 'mode': 'passive',
+"let g:syntastic_java_javac_delete_output = 0
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_mode_map = { 'mode': 'passive',
             \ 'passive_filetypes': ['java']}
 
 " ================ Java Complete ================

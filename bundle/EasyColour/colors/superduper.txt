@@ -70,9 +70,7 @@ Dark:
 	Define,Macro:DarkBlue,Style=Bold
     
     # Java classes
-    EnumerationValue:Undef
     Field:LitGrey
-    EnumeratorName:Undef
     Interface:Undef
     Package:PinkRed
 
@@ -92,17 +90,17 @@ Dark:
 	SpellBad:Style=Undercurl,SP=PinkRed
 	SignColumn:@StatusLine
 
-	Label:Undef
-	DefinedName:Undef
-	EnumerationValue:Undef
-	EnumerationName:Undef
-	Member:Undef
-	Union:Undef
-	Structure:Undef
-	SpecialChar:Undef
-	MatchParen:Undef
-	Pmenu:Undef
-	Title:Undef
+	Label:Cyan
+	DefinedName:@Label
+	EnumerationValue:@Label
+	EnumerationName:@Label
+	Member:@Label
+	Union:@Label
+	Structure:@Label
+	SpecialChar:@Label
+	MatchParen:@Label
+	Pmenu:@Label
+	Title:@Label
 
 	htmlH1:DarkBlue
 	htmlH2:@htmlH1

@@ -16,39 +16,81 @@ Colours:
 	MidBlue:#325e88
 	LightBlue:#2c96fd
 	Undef:#FF00FF
+    
+    Test:#000000
 	
 Dark:
 	Normal:LitGrey,DarkGrey
 	Comment:MidGrey
 	NonText:@Comment
 	LineNr:@Comment
-	#DoxygenKeyword:
-	#DocygenTable:
-	#DocygenTableLines:
-	#LinkComment:
-	Constant:PinkRed
-	Statement:@Constant
-	Conditional:@Constant
-	Operator:@Statement
+    
+	#DoxygenKeyword:Test
+	#DocygenTable:Test
+	#DocygenTableLines:Test
+	#LinkComment:Test
+
+    # Numbers
+	Constant:Purple
+
+    # new/instanceof
+	Operator:PinkRed
+
+    # if
+	Conditional:Orange
+    # i.e. int/void/ boolean 
+	Type:@Conditional
+    # for/while
+	Repeat:@Conditional
+
+    # let
+	Statement:PinkRed
+
 	String:LightYellow
 	Character:@String
+
+    # vim variable
 	Identifier:Orange
+
 	Function:Green	
 	Method:Green
+
 	Class:LightBlue
 	LocalVariable:LitGrey
-	GlobalVariable:@LocalVariable
-	GlobalConstant:@LocalVariable
-	StorageClass:Orange
+	GlobalVariable:Test
+	GlobalConstant:Test
+
 	PreProc:Orange
+	StorageClass:@PreProc
 	Include:@PreProc
 	PreCondit:@PreProc
 	Exception:@PreProc
+
 	Define,Macro:DarkBlue,Style=Bold
-	Type:Undef
-	Special:@Type
-	SpecialKey:@Type
-	Repeat:Undef
+    
+    # Java classes
+    EnumerationValue:Undef
+    Field:LitGrey
+    EnumeratorName:Undef
+    Interface:Undef
+    Package:PinkRed
+
+    # @tags
+	Special:Cyan
+	SpecialKey:Test
+
+	Error:LightGrey,PinkRed
+
+	NonIndentTabError:SP=LightYellow,Style=Undercurl
+	Todo:DarkBlue,LightBlue
+	FoldColumn:@Todo
+
+	VertSplit:MidBlue
+	StatusLine:LitGrey,MidGrey
+	StatusLineNC:@StatusLine
+	SpellBad:Style=Undercurl,SP=PinkRed
+	SignColumn:@StatusLine
+
 	Label:Undef
 	DefinedName:Undef
 	EnumerationValue:Undef
@@ -57,18 +99,10 @@ Dark:
 	Union:Undef
 	Structure:Undef
 	SpecialChar:Undef
-	MatchParen:LightYellow
-	Error:LightGrey,PinkRed
-	NonIndentTabError:SP=LightYellow,Style=Undercurl
-	Todo:DarkBlue,LightBlue
-	FoldColumn:@Todo
+	MatchParen:Undef
 	Pmenu:Undef
-	StatusLine:LitGrey,MidGrey
-	StatusLineNC:@StatusLine
-	VertSplit:MidBlue
-	SpellBad:Style=Undercurl,SP=PinkRed
-	SignColumn:@StatusLine
 	Title:Undef
+
 	htmlH1:DarkBlue
 	htmlH2:@htmlH1
 	htmlH3:@htmlH1

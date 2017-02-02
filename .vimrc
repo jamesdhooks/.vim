@@ -77,7 +77,7 @@ Plugin 'nerdtree'
 " Easy Color
 Plugin 'EasyColour'
 " Tag Highlight
-"Plugin 'TagHighlight'
+Plugin 'TagHighlight'
 
 " syntax highlighting
 "Plugin 'syntastic'
@@ -109,12 +109,12 @@ filetype plugin indent on    " required
 
 " ================ Visual Settings ================
 "colorscheme molokai
-"colorscheme superduper
-"if has('win32')
-"    set guifont=DejaVu_Sans_Mono:h10
-"elseif has('mac')
-"    set guifont=Monaco:h12
-"endif
+colorscheme superduper
+if has('win32')
+    set guifont=DejaVu_Sans_Mono:h10
+elseif has('mac')
+    set guifont=Monaco:h12
+endif
 
 " ================ Nerd Tree ================
 " Open Nerd Tree with <Leader>n
@@ -125,6 +125,10 @@ map <Leader>r <esc>:NERDTreeFind<cr>
 map <Leader>o <esc>:NERDTreeFromBookmark 207<cr>
 " Open bookmark to Vim settings
 map <Leader>v <esc>:NERDTreeFromBookmark Vim<cr>
+
+" ================ Tag Highlight ===============
+" UpdateFileTypes
+map <Leader>u <esc>:UpdateTypesFile<cr>
 
 " ================ Coffee Script ================
 " Compile the current file into a vertcally split screen

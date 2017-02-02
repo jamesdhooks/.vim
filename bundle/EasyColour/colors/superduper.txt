@@ -15,7 +15,8 @@ Colours:
 	DarkBlue:#203345
 	MidBlue:#325e88
 	LightBlue:#2c96fd
-	Undef:#FF00FF
+    PowderBlue:#bed6ff	
+    Undef:#FF00FF
     
     Test:#000000
 	
@@ -57,8 +58,8 @@ Dark:
 
 	Class:LightBlue
 	LocalVariable:LitGrey
-	GlobalVariable:Test
-	GlobalConstant:Test
+	GlobalVariable:Cyan
+	GlobalConstant:Cyan
 
 	PreProc:Orange
 	StorageClass:@PreProc
@@ -77,7 +78,7 @@ Dark:
 
     # @tags
 	Special:Cyan
-	SpecialKey:Test
+	SpecialKey:@Special
 
 	Error:LightGrey,PinkRed
 

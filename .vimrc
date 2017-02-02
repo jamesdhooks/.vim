@@ -108,13 +108,13 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " ================ Visual Settings ================
-"colorscheme molokai
+colorscheme molokai
 "colorscheme superduper
-"if has('win32')
-"    set guifont=DejaVu_Sans_Mono:h10
-"elseif has('mac')
-"    set guifont=Monaco:h12
-"endif
+if has('win32')
+    set guifont=DejaVu_Sans_Mono:h10
+elseif has('mac')
+    set guifont=Monaco:h12
+endif
 
 " ================ Nerd Tree ================
 " Open Nerd Tree with <Leader>n

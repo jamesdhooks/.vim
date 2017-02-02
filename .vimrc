@@ -108,8 +108,8 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " ================ Visual Settings ================
-"colorscheme molokai
 colorscheme superduper
+"colorscheme molokai
 if has('win32')
     set guifont=DejaVu_Sans_Mono:h10
 elseif has('mac')

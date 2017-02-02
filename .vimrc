@@ -79,14 +79,11 @@ Plugin 'EasyColour'
 " Tag Highlight
 Plugin 'TagHighlight'
 
+" Checkstyle
+Plugin 'java_checkstyle.vim'
+
 " syntax highlighting
 "Plugin 'syntastic'
-
-" Ctags
-"Plugin 'ctags.vim'
-
-" highlights class names and methods more brightly
-"Plugin 'TagHighlight'
 
 " coffee script
 "Plugin 'vim-coffee-script'
@@ -108,8 +105,8 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " ================ Visual Settings ================
-colorscheme superduper
 "colorscheme molokai
+colorscheme superduper
 if has('win32')
     set guifont=DejaVu_Sans_Mono:h10
 elseif has('mac')

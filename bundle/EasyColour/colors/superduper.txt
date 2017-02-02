@@ -58,8 +58,8 @@ Dark:
 
 	Class:LightBlue
 	LocalVariable:LitGrey
-	GlobalVariable:Cyan
-	GlobalConstant:Cyan
+	GlobalVariable:PinkRed
+	GlobalConstant:PinkRed
 
 	PreProc:Orange
 	StorageClass:@PreProc

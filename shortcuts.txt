@@ -1,0 +1,14 @@
+Vim:
+/, search, * forward, # backwards
+ v, new split window
+gf, go file, for linking .vimrc with source C:/.../.vimrc
+
+NerdTree:
+gs, split vertical
+
+Git:
+add -u, adds all modified files
+status -uno, --untracked-files=no
+
+Ctags
+Ctags -R *, recursively build tags in directory

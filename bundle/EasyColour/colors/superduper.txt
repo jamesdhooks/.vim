@@ -1,23 +1,24 @@
 # Saving this file will update the current colour scheme.
 Basis:None
 Colours:
-	DarkGrey:#1b1d1e
+	DarkGrey:#252929
 	MidGrey:#7D8C93
-	LightGrey:#E0E2E4
+	LitGrey:#E0E2E4
 
 	Orange:#FD951F
-	PinkRed:#F62D73
+	PinkRed:#F6437F
 	LightYellow:#E6DB74
+	Green:#7cd42f
+    Cyan:#52cca7
+    Purple:#ad81ff
 
-	DarkBlue:#1E90FF
-	MidBlue:#79ABFF
-	LightBlue:#BED6FF
+	DarkBlue:#203345
+	MidBlue:#325e88
+	LightBlue:#2c96fd
 	Undef:#FF00FF
-	Green:#A6E22E
 	
-	Test:#0014aa
 Dark:
-	Normal:LightGrey,DarkGrey
+	Normal:LitGrey,DarkGrey
 	Comment:MidGrey
 	NonText:@Comment
 	LineNr:@Comment
@@ -32,19 +33,19 @@ Dark:
 	String:LightYellow
 	Character:@String
 	Identifier:Orange
-	Function:Undef	
-	Method:Undef
-	Class:Undef
-	LocalVariable:MidBlue
+	Function:Green	
+	Method:Green
+	Class:LightBlue
+	LocalVariable:LitGrey
 	GlobalVariable:@LocalVariable
 	GlobalConstant:@LocalVariable
 	StorageClass:Orange
-	PreProc:Green
+	PreProc:Orange
 	Include:@PreProc
 	PreCondit:@PreProc
 	Exception:@PreProc
 	Define,Macro:DarkBlue,Style=Bold
-	Type:DarkBlue
+	Type:Undef
 	Special:@Type
 	SpecialKey:@Type
 	Repeat:Undef
@@ -62,7 +63,7 @@ Dark:
 	Todo:DarkBlue,LightBlue
 	FoldColumn:@Todo
 	Pmenu:Undef
-	StatusLine:LightGrey,MidGrey
+	StatusLine:LitGrey,MidGrey
 	StatusLineNC:@StatusLine
 	VertSplit:MidBlue
 	SpellBad:Style=Undercurl,SP=PinkRed

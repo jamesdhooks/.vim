@@ -1,4 +1,4 @@
-" ================ General Configuration ================ 
+
 syntax on                       "Turn on syntax highlighting
 filetype off                    "Required
 
@@ -105,7 +105,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " ================ Visual Settings ================
-"colorscheme molokai
+colorscheme molokai
 colorscheme superduper
 if has('win32')
     set guifont=DejaVu_Sans_Mono:h10

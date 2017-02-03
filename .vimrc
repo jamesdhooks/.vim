@@ -28,9 +28,9 @@ set nowb
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 set expandtab
 
 " Display tabs and trailing spaces visually
@@ -148,7 +148,7 @@ let g:syntastic_quiet_messages={'level': 'warnings'}
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let b:syntastic_skip_checks = 0
-let g:syntastic_debug = 8
+"let g:syntastic_debug = 8
 
 " Checkers
 let g:syntastic_java_checkers = ['checkstyle']

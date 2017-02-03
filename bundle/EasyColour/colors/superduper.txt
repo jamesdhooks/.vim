@@ -90,7 +90,7 @@ Dark:
 	SpellBad:Style=Undercurl,SP=PinkRed
 	SignColumn:@StatusLine
 
-	Label:Cyan
+	Label:Orange
 	DefinedName:@Label
 	EnumerationValue:@Label
 	EnumerationName:@Label

@@ -3,9 +3,10 @@ Vim:
  v, new split window
 gf, go file, for linking .vimrc with source C:/.../.vimrc
 viwp, replace word with yanked word
+so %, reload .vimrc
 
 NerdTree:
-gs, split vertical
+gs, split vertical but keep focus on nt
 
 Syntastic
 :SyntasticCheck

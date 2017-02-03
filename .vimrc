@@ -106,7 +106,7 @@ filetype plugin indent on    " required
 
 " ================ Visual Settings ================
 "colorscheme molokai
-colorscheme superduper
+"colorscheme superduper
 if has('win32')
     set guifont=DejaVu_Sans_Mono:h10
 elseif has('mac')

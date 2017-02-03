@@ -4,6 +4,7 @@ Vim:
 gf, go file, for linking .vimrc with source C:/.../.vimrc
 viwp, replace word with yanked word
 so %, reload .vimrc
+gg=G, indent whole file
 
 NerdTree:
 gs, split vertical but keep focus on nt
@@ -20,3 +21,6 @@ status -uno, --untracked-files=no
 
 Ctags
 Ctags -R *, recursively build tags in directory
+
+dos2unix
+find . -type f -exec dos2unix {} \;

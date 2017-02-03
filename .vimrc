@@ -133,25 +133,29 @@ map <Leader>u <esc>:UpdateTypesFile<cr>
 
 " ================ Synastic ================
 "mark syntax errors with :signs
-let g:syntastic_enable_signs=1
+"let g:syntastic_enable_signs=1
 "automatically jump to the error when saving the file
-let g:syntastic_auto_jump=0
+"let g:syntastic_auto_jump=0
 "show the error list automatically
-let g:syntastic_auto_loc_list=1
+"let g:syntastic_auto_loc_list=1
 "don't care about warnings
-let g:syntastic_quiet_messages={'level': 'warnings'}
+"let g:syntastic_quiet_messages={'level': 'warnings'}
 
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
 
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let b:syntastic_skip_checks = 0
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let b:syntastic_skip_checks = 0
 "let g:syntastic_debug = 8
 
+" Debug
+let g:syntastic_debug = 8
+let b:syntastic_skip_checks = 0
 " Checkers
-let g:syntastic_java_checkers = ['checkstyle']
+"let g:syntastic_java_checkers = ['checkstyle']
+let g:syntastic_java_checker = 'checkstyle'
 let g:syntastic_java_checkstyle_classpath = '~/.vim/checkstyle-7.5-all.jar'
 let g:syntastic_java_checkstyle_conf_file = '~/.vim/checks.xml'
 let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes':['java']}
@@ -162,7 +166,7 @@ let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes':['java']}
 "let g:syntastic_java_javac_delete_output = 0
 "let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_mode_map = { 'mode': 'passive',
-            \ 'passive_filetypes': ['java']}
+"            \ 'passive_filetypes': ['java']}
 
 " ================ Java Complete ================
 autocmd FileType java setlocal omnifunc=javacomplete#Complete

@@ -141,9 +141,9 @@ let g:syntastic_auto_jump=0
 "don't care about warnings
 "let g:syntastic_quiet_messages={'level': 'warnings'}
 
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
@@ -151,22 +151,32 @@ let g:syntastic_check_on_wq = 0
 " Debug
 "let g:syntastic_debug = 8
 "let b:syntastic_skip_checks = 0
+
 " Checkers
 let g:syntastic_java_checkers = ['checkstyle']
 let g:syntastic_java_checkstyle_classpath = '~/.vim/checkstyle-7.5-all.jar'
 let g:syntastic_java_checkstyle_conf_file = '~/.vim/checks.xml'
 let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes':['java']}
 
+" Colors
+" SyntasticErrorSign
+" SyntasticWarningSign
+" SyntasticStyleErrorSign
+" SyntasticStyleWarningSign
+" SyntasticErrorLine
+" SyntasticWarningLine
+" SyntasticStyleErrorLine
+" SyntasticStyleWarningLine
 
-"let g:syntastic_java_javac_classpath='/Users/jameshooks/Dropbox/School/csc207/hooksjam*'
-"let g:syntastic_java_javac_classpath = 'C:\Users\LABIMD05\workspace\szz_lib\*;C:\Users\LABIMD05\workspace\backhoe-nomvn2\bin\classes'
-"let g:syntastic_java_javac_delete_output = 0
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_mode_map = { 'mode': 'passive',
-"            \ 'passive_filetypes': ['java']}
+"hi SyntasticErrorSign ctermfg=100 ctermbg=100 guifg=#F6437F guibg=#252929
+"hi SyntasticStyleErrorSign ctermfg=100 ctermbg=100 guifg=#F6437F guibg=#252929
+"hi SyntasticWarningSign ctermfg=100 ctermbg=100 guifg=#F6437F guibg=#252929
+hi SyntasticStyleWarningSign ctermfg=100 ctermbg=100 guifg=#2c96fd guibg=#203345
 
+"hi SyntasticStyleWarningLine ctermfg=100 ctermbg=100 guifg=#F6437F guibg=#252929
 " ================ Java Complete ================
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
 " ====== Make tabs be addressable via Apple+1 or 2 or 3, etc
 " Use numbers to pick the tab you want (like iTerm)
 map <silent> <D-1> :tabn 1<cr>

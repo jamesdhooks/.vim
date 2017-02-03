@@ -67,7 +67,7 @@ Dark:
   PreCondit:@PreProc
   Exception:@PreProc
 
-  Define,Macro:DarkBlue,Style=Bold
+  Define,Macro:PinkRed,Style=Bold
 
 # Java classes
   Field:LitGrey
@@ -81,7 +81,7 @@ Dark:
   Error:LightGrey,PinkRed
 
   NonIndentTabError:SP=LightYellow,Style=Undercurl
-  Todo:DarkBlue,LightBlue
+  Todo:PinkRed,LightBlue
   FoldColumn:@Todo
 
   VertSplit:MidBlue
@@ -102,7 +102,7 @@ Dark:
   Pmenu:@Label
   Title:@Label
 
-  htmlH1:DarkBlue
+  htmlH1:LightBlue
   htmlH2:@htmlH1
   htmlH3:@htmlH1
   htmlH4:@htmlH1
@@ -119,6 +119,3 @@ Dark:
   hlLevel7:@Delimiter
   hlLevel8:@Delimiter
   hlLevel9:@Delimiter
-
-
-

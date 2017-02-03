@@ -67,7 +67,7 @@ Dark:
   PreCondit:@PreProc
   Exception:@PreProc
 
-  Define,Macro:PinkRed,Style=Bold
+  Define,Macro:Cyan,Style=Bold
 
 # Java classes
   Field:LitGrey

@@ -75,11 +75,9 @@ Plugin 'nerdtree'
 
 " Easy Color
 Plugin 'EasyColour'
+
 " Tag Highlight
 Plugin 'TagHighlight'
-
-" Checkstyle
-"Plugin 'java_checkstyle.vim'
 
 " syntax highlighting
 Plugin 'syntastic'

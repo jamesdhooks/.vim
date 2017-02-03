@@ -1,124 +1,124 @@
 # Saving this file will update the current colour scheme.
 Basis:None
 Colours:
-DarkGrey:#252929
-MidGrey:#7D8C93
-LitGrey:#E0E2E4
+  DarkGrey:#252929
+  MidGrey:#7D8C93
+  LitGrey:#E0E2E4
 
-Orange:#FD951F
-PinkRed:#F6437F
-LightYellow:#E6DB74
-Green:#7cd42f
-Cyan:#52cca7
-Purple:#ad81ff
+  Orange:#FD951F
+  PinkRed:#F6437F
+  LightYellow:#E6DB74
+  Green:#7cd42f
+  Cyan:#52cca7
+  Purple:#ad81ff
 
-DarkBlue:#203345
-MidBlue:#325e88
-LightBlue:#2c96fd
-PowderBlue:#bed6ff	
-Undef:#FF00FF
+  DarkBlue:#203345
+  MidBlue:#325e88
+  LightBlue:#2c96fd
+  PowderBlue:#bed6ff	
+  Undef:#FF00FF
 
-Test:#000000
+  Test:#000000
 
 Dark:
-Normal:LitGrey,DarkGrey
-Comment:MidGrey
-NonText:@Comment
-LineNr:@Comment
+  Normal:LitGrey,DarkGrey
+  Comment:MidGrey
+  NonText:@Comment
+  LineNr:@Comment
 
-#DoxygenKeyword:Test
+  #DoxygenKeyword:Test
 #DocygenTable:Test
 #DocygenTableLines:Test
 #LinkComment:Test
 
 # Numbers
-Constant:Purple
+  Constant:Purple
 
 # new/instanceof
-Operator:PinkRed
+  Operator:PinkRed
 
 # if
-Conditional:Orange
+  Conditional:Orange
 # i.e. int/void/ boolean 
-Type:@Conditional
+  Type:@Conditional
 # for/while
-Repeat:@Conditional
+  Repeat:@Conditional
 
 # let
-Statement:PinkRed
+  Statement:PinkRed
 
-String:LightYellow
-Character:@String
+  String:LightYellow
+  Character:@String
 
 # vim variable
-Identifier:Orange
+  Identifier:Orange
 
-Function:Green	
-Method:Green
+  Function:Green	
+  Method:Green
 
-Class:LightBlue
-LocalVariable:LitGrey
-GlobalVariable:PinkRed
-GlobalConstant:PinkRed
+  Class:LightBlue
+  LocalVariable:LitGrey
+  GlobalVariable:PinkRed
+  GlobalConstant:PinkRed
 
-PreProc:Orange
-StorageClass:@PreProc
-Include:@PreProc
-PreCondit:@PreProc
-Exception:@PreProc
+  PreProc:Orange
+  StorageClass:@PreProc
+  Include:@PreProc
+  PreCondit:@PreProc
+  Exception:@PreProc
 
-Define,Macro:DarkBlue,Style=Bold
+  Define,Macro:DarkBlue,Style=Bold
 
 # Java classes
-Field:LitGrey
-Interface:Undef
-Package:PinkRed
+  Field:LitGrey
+  Interface:Undef
+  Package:PinkRed
 
 # @tags
-Special:Cyan
-SpecialKey:@Special
+  Special:Cyan
+  SpecialKey:@Special
 
-Error:LightGrey,PinkRed
+  Error:LightGrey,PinkRed
 
-NonIndentTabError:SP=LightYellow,Style=Undercurl
-Todo:DarkBlue,LightBlue
-FoldColumn:@Todo
+  NonIndentTabError:SP=LightYellow,Style=Undercurl
+  Todo:DarkBlue,LightBlue
+  FoldColumn:@Todo
 
-VertSplit:MidBlue
-StatusLine:LitGrey,MidGrey
-StatusLineNC:@StatusLine
-SpellBad:Style=Undercurl,SP=PinkRed
-SignColumn:@StatusLine
+  VertSplit:MidBlue
+  StatusLine:LitGrey,MidGrey
+  StatusLineNC:@StatusLine
+  SpellBad:Style=Undercurl,SP=PinkRed
+  SignColumn:@StatusLine
 
-Label:Orange
-DefinedName:@Label
-EnumerationValue:@Label
-EnumerationName:@Label
-Member:@Label
-Union:@Label
-Structure:@Label
-SpecialChar:@Label
-MatchParen:@Label
-Pmenu:@Label
-Title:@Label
+  Label:Orange
+  DefinedName:@Label
+  EnumerationValue:@Label
+  EnumerationName:@Label
+  Member:@Label
+  Union:@Label
+  Structure:@Label
+  SpecialChar:@Label
+  MatchParen:@Label
+  Pmenu:@Label
+  Title:@Label
 
-htmlH1:DarkBlue
-htmlH2:@htmlH1
-htmlH3:@htmlH1
-htmlH4:@htmlH1
-htmlH5:@htmlH1
-htmlH6:@htmlH1
-Delimiter:LightBlue
-hlLevel0:@Delimiter
-hlLevel1:@Delimiter
-hlLevel2:@Delimiter
-hlLevel3:@Delimiter
-hlLevel4:@Delimiter
-hlLevel5:@Delimiter
-hlLevel6:@Delimiter
-hlLevel7:@Delimiter
-hlLevel8:@Delimiter
-hlLevel9:@Delimiter
+  htmlH1:DarkBlue
+  htmlH2:@htmlH1
+  htmlH3:@htmlH1
+  htmlH4:@htmlH1
+  htmlH5:@htmlH1
+  htmlH6:@htmlH1
+  Delimiter:LightBlue
+  hlLevel0:@Delimiter
+  hlLevel1:@Delimiter
+  hlLevel2:@Delimiter
+  hlLevel3:@Delimiter
+  hlLevel4:@Delimiter
+  hlLevel5:@Delimiter
+  hlLevel6:@Delimiter
+  hlLevel7:@Delimiter
+  hlLevel8:@Delimiter
+  hlLevel9:@Delimiter
 
 
 

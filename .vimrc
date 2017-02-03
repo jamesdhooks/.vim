@@ -1,4 +1,3 @@
-
 syntax on                       "Turn on syntax highlighting
 filetype off                    "Required
 
@@ -132,10 +131,11 @@ map <Leader>u <esc>:UpdateTypesFile<cr>
 "map <Leader>cs <esc>:CoffeeCompile vert<cr>
 
 " ================ Synastic ================
+map <Leader>c <esc>:SyntasticCheck<cr>
 "mark syntax errors with :signs
-"let g:syntastic_enable_signs=1
+let g:syntastic_enable_signs=1
 "automatically jump to the error when saving the file
-"let g:syntastic_auto_jump=0
+let g:syntastic_auto_jump=0
 "show the error list automatically
 "let g:syntastic_auto_loc_list=1
 "don't care about warnings
@@ -145,17 +145,14 @@ map <Leader>u <esc>:UpdateTypesFile<cr>
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
 
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let b:syntastic_skip_checks = 0
-"let g:syntastic_debug = 8
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Debug
-let g:syntastic_debug = 8
-let b:syntastic_skip_checks = 0
+"let g:syntastic_debug = 8
+"let b:syntastic_skip_checks = 0
 " Checkers
-"let g:syntastic_java_checkers = ['checkstyle']
-let g:syntastic_java_checker = 'checkstyle'
+let g:syntastic_java_checkers = ['checkstyle']
 let g:syntastic_java_checkstyle_classpath = '~/.vim/checkstyle-7.5-all.jar'
 let g:syntastic_java_checkstyle_conf_file = '~/.vim/checks.xml'
 let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes':['java']}

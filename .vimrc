@@ -130,7 +130,19 @@ map <Leader>u <esc>:UpdateTypesFile<cr>
 "map <Leader>cs <esc>:CoffeeCompile vert<cr>
 
 " ================ Compile ================
-map <F5> :call CompileJava()<CR>
+map <F5> :call CompilePackage()<CR>
+map <F6> :call RunFile()<CR>
+func! CompilePackage()
+silent exec "w"
+silent exec "!javac -sourcepath %p:h:h:h/src -d %:p:h:h:h/bin %:p:h/*.java"
+silent exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
+endfun
+
+func! RunFile()
+silent exec "w"
+silent exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
+endfun
+
 func! CompileJava()
 exec "w"
 if &filetype == 'java'

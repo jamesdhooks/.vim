@@ -7,6 +7,14 @@ so %, reload .vimrc
 gg=G, indent whole file
 %s/foo/bar/g, replace foo with bar in all lines
 
+% current file path
+:p, full directory of path
+:h, head/parent of path
+:t, current file/directory only, (removes rest of path)
+:r, remove file extension
+:echo, say variable 
+:echo expand("%:p:h"), test path variable
+
 NerdTree:
 gs, split vertical but keep focus on nt
 

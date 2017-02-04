@@ -79,13 +79,12 @@ Plugin 'EasyColour'
 " Tag Highlight
 Plugin 'TagHighlight'
 
-" syntax highlighting
+" Syntax highlighting
 Plugin 'syntastic'
 
-" coffee script
-"Plugin 'kchmck/vim-coffee-script'
-" Java Run
-Plugin 'JavaRun'
+" Ant
+"Plugin 'Ant'
+"Plugin 'mcant.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -131,7 +130,15 @@ map <Leader>u <esc>:UpdateTypesFile<cr>
 "map <Leader>cs <esc>:CoffeeCompile vert<cr>
 
 " ================ Compile ================
-map <F5> :call CompileRunGcc()<CR>
+map <F5> :call CompileJava()<CR>
+func! CompileJava()
+exec "w"
+if &filetype == 'java'
+exec "!javac %"
+exec "!time java -cp %:p:h %:t:r"
+endif
+endfunc
+
 func! CompileRunGcc()
 exec "w"
 if &filetype == 'c'

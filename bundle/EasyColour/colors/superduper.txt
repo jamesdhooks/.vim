@@ -85,10 +85,11 @@ Dark:
   FoldColumn:@Todo
 
   VertSplit:MidBlue
-  StatusLine:LitGrey,MidGrey
+  StatusLine:MidGrey,DarkBlue
   StatusLineNC:@StatusLine
+  SignColumn:MidGrey,DarkBlue
   SpellBad:Style=Undercurl,SP=PinkRed
-  SignColumn:@StatusLine
+  SpellCap:Style=Undercurl,SP=PinkRed
 
   Label:Orange
   DefinedName:@Label

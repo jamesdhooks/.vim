@@ -5,6 +5,7 @@ gf, go file, for linking .vimrc with source C:/.../.vimrc
 viwp, replace word with yanked word
 so %, reload .vimrc
 gg=G, indent whole file
+%s/foo/bar/g, replace foo with bar in all lines
 
 NerdTree:
 gs, split vertical but keep focus on nt

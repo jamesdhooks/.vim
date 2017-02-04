@@ -139,9 +139,9 @@ let g:syntastic_auto_jump=0
 "don't care about warnings
 "let g:syntastic_quiet_messages={'level': 'warnings'}
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
@@ -169,9 +169,10 @@ let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes':['java']}
 "hi SyntasticErrorSign ctermfg=100 ctermbg=100 guifg=#F6437F guibg=#252929
 "hi SyntasticStyleErrorSign ctermfg=100 ctermbg=100 guifg=#F6437F guibg=#252929
 "hi SyntasticWarningSign ctermfg=100 ctermbg=100 guifg=#F6437F guibg=#252929
+"hi SyntasticStyleWarningSign ctermfg=100 ctermbg=100 guifg=#F6437F guibg=#203345
 hi SyntasticStyleWarningSign ctermfg=100 ctermbg=100 guifg=#2c96fd guibg=#203345
+hi SyntasticStyleWarningLine ctermfg=100 ctermbg=100 guibg=#39382f
 
-"hi SyntasticStyleWarningLine ctermfg=100 ctermbg=100 guifg=#F6437F guibg=#252929
 " ================ Java Complete ================
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 

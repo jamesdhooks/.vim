@@ -83,8 +83,9 @@ Plugin 'TagHighlight'
 Plugin 'syntastic'
 
 " coffee script
-"Plugin 'vim-coffee-script'
-"Plugin 'coffee.vim'
+"Plugin 'kchmck/vim-coffee-script'
+" Java Run
+Plugin 'JavaRun'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -126,7 +127,36 @@ map <Leader>u <esc>:UpdateTypesFile<cr>
 
 " ================ Coffee Script ================
 " Compile the current file into a vertcally split screen
+"map <Leader>cs <esc>:CoffeeCompile<cr>
 "map <Leader>cs <esc>:CoffeeCompile vert<cr>
+
+" ================ Compile ================
+map <F5> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+exec "w"
+if &filetype == 'c'
+exec "!gcc % -o %<"
+exec "!time ./%<"
+elseif &filetype == 'cpp'
+exec "!g++ % -o %<"
+exec "!time ./%<"
+elseif &filetype == 'java'
+exec "!javac %"
+exec "!time java -cp %:p:h %:t:r"
+elseif &filetype == 'sh'
+exec "!time bash %"
+elseif &filetype == 'python'
+exec "!time python2.7 %"
+elseif &filetype == 'html'
+exec "!firefox % &"
+elseif &filetype == 'go'
+exec "!go build %<"
+exec "!time go run %"
+elseif &filetype == 'mkd'
+exec "!~/.vim/markdown.pl % > %.html &"
+exec "!firefox %.html &"
+endif
+endfunc
 
 " ================ Synastic ================
 map <Leader>c <esc>:SyntasticCheck<cr>

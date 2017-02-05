@@ -21,19 +21,26 @@ Plugin 'molokai'
 Plugin 'h80'
 
 " file explorer
-Plugin 'nerdtree'
+Plugin 'scrooloose/nerdtree'
+
+" Better commenting
+Plugin 'scrooloose/nerdcommenter'
+
+" Tag Highlight
+Plugin 'TagHighlight' 
 
 " Easy Color
 Plugin 'EasyColour'
-
-" Tag Highlight
-Plugin 'TagHighlight'
 
 " Syntax highlighting
 Plugin 'syntastic'
 
 " Git wrapper
 Plugin 'fugitive.vim'
+
+" Airline status line
+Plugin 'vim-airline/vim-airline'
+
 " Ant
 "Plugin 'Ant'
 "Plugin 'mcant.vim'
@@ -114,7 +121,8 @@ colorscheme superduper
 if has('win32')
     set guifont=DejaVu_Sans_Mono:h10
 elseif has('mac')
-    set guifont=Monaco:h12
+    set guifont=DejaVu_Sans_Mono_for_Powerline:h12
+    "set guifont=Monaco:h12
 endif
 
 " ================ Splitting and Movement ================
@@ -127,7 +135,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
-
+    
 " ================ Nerd Tree ================
 " Open Nerd Tree with <Leader>n
 map <Leader>n <esc>:NERDTreeToggle<cr>
@@ -144,12 +152,40 @@ map <Leader>u <esc>:UpdateTypesFile<cr>
 " ================ Fugitive ================
 map <Leader>s <esc>:Gstatus<cr>
 map <Leader>a <esc>:Git add -u<cr>:Gcommit<cr>
-"map <Leader>a :call AddAndCommit()<cr>
-func! AddAndCommit()
-:Git add -u
-:Gcommit
-endfun
-" ================ Compile ================
+
+" ================ Airline ================ 
+
+"let g:airline#extensions#tabline#enabled =1
+let g:airline_powerline_fonts=1
+"let g:airline_theme = 'tender'
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+" ================ Java Compile ================
 map <F5> :call CompilePackage()<CR>
 map <F6> :call RunFile()<CR>
 func! CompilePackage()
@@ -235,15 +271,11 @@ let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes':['java']}
 " SyntasticStyleErrorLine
 " SyntasticStyleWarningLine
 
-"hi SyntasticErrorSign ctermfg=100 ctermbg=100 guifg=#F6437F guibg=#252929
-"hi SyntasticStyleErrorSign ctermfg=100 ctermbg=100 guifg=#F6437F guibg=#252929
-"hi SyntasticWarningSign ctermfg=100 ctermbg=100 guifg=#F6437F guibg=#252929
-"hi SyntasticStyleWarningSign ctermfg=100 ctermbg=100 guifg=#F6437F guibg=#203345
 hi SyntasticStyleWarningSign ctermfg=100 ctermbg=100 guifg=#2c96fd guibg=#203345
 hi SyntasticStyleWarningLine ctermfg=100 ctermbg=100 guibg=#39382f
 
 " ================ Java Complete ================
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
+"autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " ====== Make tabs be addressable via Apple+1 or 2 or 3, etc
 " Use numbers to pick the tab you want (like iTerm)

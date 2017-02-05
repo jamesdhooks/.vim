@@ -34,6 +34,8 @@ TagHightlight
 Git:
 add -u, adds all modified files
 status -uno, --untracked-files=no
+//  Fixes the stupid ass ^M problem
+--global core.autocrlf input
 
 Ctags
 Ctags -R *, recursively build tags in directory

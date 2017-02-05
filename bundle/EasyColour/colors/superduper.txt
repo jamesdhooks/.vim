@@ -24,34 +24,41 @@ Dark:
   Normal:LitGrey,DarkGrey
   Comment:MidGrey
   NonText:@Comment
+
+  # Cursor
   LineNr:@Comment
+  Cursor:DarkBlue,LightBlue
+  CursorColumn:PinkRed,Cyan
+  CursorLine:BG=DarkBlue
+  CursorLineNr:LightBlue
 
   #DoxygenKeyword:Test
-#DocygenTable:Test
-#DocygenTableLines:Test
-#LinkComment:Test
+  #DocygenTable:Test
+  #DocygenTableLines:Test
+  #LinkComment:Test
 
-# Numbers
+  # Numbers
   Constant:Purple
 
-# new/instanceof
+  # new/instanceof
   Operator:PinkRed
 
-# if
+  # if
   Conditional:Orange
-# i.e. int/void/ boolean 
+  # i.e. int/void/ boolean 
   Type:@Conditional
-# for/while
+  # for/while
   Repeat:@Conditional
 
-# let
+  # let
   Statement:PinkRed
 
   String:LightYellow
   Character:@String
 
-# vim variable
+  # vim variable
   Identifier:Orange
+
 
   Function:Green	
   Method:Green

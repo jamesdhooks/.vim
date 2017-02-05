@@ -1,10 +1,50 @@
 syntax on                       "Turn on syntax highlighting
 filetype off                    "Required
 
+" ================ Vundle ================
+" Brief help :h
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" colorschemes
+Plugin 'Solarized'
+Plugin 'molokai'
+Plugin 'h80'
+
+" file explorer
+Plugin 'nerdtree'
+
+" Easy Color
+Plugin 'EasyColour'
+
+" Tag Highlight
+Plugin 'TagHighlight'
+
+" Syntax highlighting
+Plugin 'syntastic'
+
+" Ant
+"Plugin 'Ant'
+"Plugin 'mcant.vim'
+
+call vundle#end()       
+filetype plugin indent on
+
+" =============== General ================
 set nocompatible                "Be iMproved, required
 set guioptions-=T		"Remove toolbar
 set guioptions-=r		"Remove right hand scroll
 set number			"Line numbers
+set cursorline
 set backspace=indent,eol,start	"Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down at the bottom
@@ -12,11 +52,19 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
-
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
+
+" ================ Folding ================
+set foldenable    " disable folding
+set foldnestmax=10
+set foldmethod=indent
+
+" open and close folds
+nnoremap <space> za
+nnoremap <space>o zA
 
 " ================ Turn Off Swap Files ==============
 set noswapfile
@@ -57,50 +105,6 @@ set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
-" ================ Vundle ================
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" colorschemes
-Plugin 'Solarized'
-Plugin 'molokai'
-Plugin 'h80'
-
-" file explorer
-Plugin 'nerdtree'
-
-" Easy Color
-Plugin 'EasyColour'
-
-" Tag Highlight
-Plugin 'TagHighlight'
-
-" Syntax highlighting
-Plugin 'syntastic'
-
-" Ant
-"Plugin 'Ant'
-"Plugin 'mcant.vim'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
 " ================ Visual Settings ================
 colorscheme molokai
 colorscheme superduper
@@ -109,6 +113,17 @@ if has('win32')
 elseif has('mac')
     set guifont=Monaco:h12
 endif
+
+" ================ Splitting and Movement ================
+" remap movement to move by column layout
+nnoremap j gj
+nnoremap k gk
+nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>q <C-w>s<C-w>j
+nnoremap <C-h> <C-w>h
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
 
 " ================ Nerd Tree ================
 " Open Nerd Tree with <Leader>n
@@ -121,13 +136,7 @@ map <Leader>o <esc>:NERDTreeFromBookmark 207<cr>
 map <Leader>v <esc>:NERDTreeFromBookmark Vim<cr>
 
 " ================ Tag Highlight ===============
-" UpdateFileTypes
 map <Leader>u <esc>:UpdateTypesFile<cr>
-
-" ================ Coffee Script ================
-" Compile the current file into a vertcally split screen
-"map <Leader>cs <esc>:CoffeeCompile<cr>
-"map <Leader>cs <esc>:CoffeeCompile vert<cr>
 
 " ================ Compile ================
 map <F5> :call CompilePackage()<CR>
@@ -208,7 +217,7 @@ let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes':['java']}
 " Colors
 " SyntasticErrorSign
 " SyntasticWarningSign
-" SyntasticStyleErrorSign
+" SyntasticStyleErrorSigh
 " SyntasticStyleWarningSign
 " SyntasticErrorLine
 " SyntasticWarningLine

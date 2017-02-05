@@ -15,6 +15,13 @@ gg=G, indent whole file
 :echo, say variable 
 :echo expand("%:p:h"), test path variable
 
+Movement:
+J, combine lines
+H, top of view
+L, bottom of view
+{, previous paragraph
+}, next paragraph
+
 NerdTree:
 gs, split vertical but keep focus on nt
 

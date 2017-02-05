@@ -32,6 +32,8 @@ Plugin 'TagHighlight'
 " Syntax highlighting
 Plugin 'syntastic'
 
+" Git wrapper
+Plugin 'fugitive.vim'
 " Ant
 "Plugin 'Ant'
 "Plugin 'mcant.vim'
@@ -58,9 +60,10 @@ set autoread                    "Reload files changed outside vim
 set hidden
 
 " ================ Folding ================
-set foldenable    " disable folding
-set foldnestmax=10
-set foldmethod=indent
+"set foldenable    " disable folding
+"set foldlevel=20
+"set foldnestmax=10
+"set foldmethod=indent
 
 " open and close folds
 nnoremap <space> za
@@ -138,6 +141,12 @@ map <Leader>v <esc>:NERDTreeFromBookmark Vim<cr>
 " ================ Tag Highlight ===============
 map <Leader>u <esc>:UpdateTypesFile<cr>
 
+" ================ Fugitive ================
+map <Leader>a :call AddAndCommit()<cr>
+func! AddAndCommit()
+:Git add -u
+:Gcommit
+endfun
 " ================ Compile ================
 map <F5> :call CompilePackage()<CR>
 map <F6> :call RunFile()<CR>

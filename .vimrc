@@ -142,7 +142,9 @@ map <Leader>v <esc>:NERDTreeFromBookmark Vim<cr>
 map <Leader>u <esc>:UpdateTypesFile<cr>
 
 " ================ Fugitive ================
-map <Leader>a :call AddAndCommit()<cr>
+map <Leader>s <esc>:Gstatus<cr>
+map <Leader>a <esc>:Git add -u<cr>:Gcommit<cr>
+"map <Leader>a :call AddAndCommit()<cr>
 func! AddAndCommit()
 :Git add -u
 :Gcommit

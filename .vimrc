@@ -1,5 +1,8 @@
 syntax on                       "Turn on syntax highlighting
 filetype off                    "Required
+set encoding=utf-8
+scriptencoding utf-8
+set noshowmode
 
 " ================ Vundle ================
 " Brief help :h
@@ -27,7 +30,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 
 " Tag Highlight
-Plugin 'TagHighlight' 
+Plugin 'TagHighlight'
 
 " Easy Color
 Plugin 'EasyColour'
@@ -40,12 +43,13 @@ Plugin 'fugitive.vim'
 
 " Airline status line
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Ant
 "Plugin 'Ant'
 "Plugin 'mcant.vim'
 
-call vundle#end()       
+call vundle#end()
 filetype plugin indent on
 
 " =============== General ================
@@ -65,6 +69,7 @@ set autoread                    "Reload files changed outside vim
 " exist in the background without being in a window.
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
+
 
 " ================ Folding ================
 "set foldenable    " disable folding
@@ -91,7 +96,7 @@ set tabstop=2
 set expandtab
 
 " Display tabs and trailing spaces visually
-"set list listchars=tab:\ \ ,trail:Â·
+"set list listchars=tab:\ \ ,trail:ÃÂ·
 set wrap       "Wrap lines
 set linebreak    "Wrap lines at convenient points
 
@@ -119,10 +124,10 @@ set sidescroll=1
 colorscheme molokai
 colorscheme superduper
 if has('win32')
-    set guifont=DejaVu_Sans_Mono:h10
+    set guifont=DejaVu\ Sans\ Mono\ for\ PowerLine:h10
+    "set guifont=DejaVu_Sans_Mono_for_PowerLine:h10
 elseif has('mac')
     set guifont=DejaVu_Sans_Mono_for_Powerline:h12
-    "set guifont=Monaco:h12
 endif
 
 " ================ Splitting and Movement ================
@@ -135,7 +140,11 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
-    
+
+" ================ Whitespace ================
+" Strips whitespace
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
 " ================ Nerd Tree ================
 " Open Nerd Tree with <Leader>n
 map <Leader>n <esc>:NERDTreeToggle<cr>
@@ -153,11 +162,9 @@ map <Leader>u <esc>:UpdateTypesFile<cr>
 map <Leader>s <esc>:Gstatus<cr>
 map <Leader>a <esc>:Git add -u<cr>:Gcommit<cr>
 
-" ================ Airline ================ 
-
-"let g:airline#extensions#tabline#enabled =1
+" ================ Airline ================
 let g:airline_powerline_fonts=1
-"let g:airline_theme = 'tender'
+let g:airline_theme = 'murmur'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -167,16 +174,21 @@ let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '«'
 let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
 let g:airline_symbols.linenr = '␊'
 let g:airline_symbols.linenr = '␤'
 let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = '☰'
+let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" airline symbols
+" powerline symbols
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
@@ -243,15 +255,11 @@ let g:syntastic_auto_jump=0
 "let g:syntastic_auto_loc_list=1
 "don't care about warnings
 "let g:syntastic_quiet_messages={'level': 'warnings'}
-
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
-
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" Debug
 "let g:syntastic_debug = 8
 "let b:syntastic_skip_checks = 0
 

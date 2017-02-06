@@ -64,6 +64,7 @@ set showcmd                     "Show incomplete cmds down at the bottom
 set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
+set t_vb=                       "No flash
 set autoread                    "Reload files changed outside vim
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -161,6 +162,7 @@ map <Leader>u <esc>:UpdateTypesFile<cr>
 " ================ Fugitive ================
 map <Leader>s <esc>:Gstatus<cr>
 map <Leader>a <esc>:Git add -u<cr>:Gcommit<cr>
+map <Leader>p <esc>:Git push<cr>
 
 " ================ Airline ================
 let g:airline_powerline_fonts=1

@@ -45,6 +45,10 @@ Plugin 'fugitive.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+" Java
+Plugin 'artur-shaik/vim-javacomplete2'
+Plugin 'SuperTab'
+
 " Ant
 "Plugin 'Ant'
 "Plugin 'mcant.vim'
@@ -292,7 +296,11 @@ hi SyntasticStyleWarningSign ctermfg=100 ctermbg=100 guifg=#2c96fd guibg=#203345
 hi SyntasticStyleWarningLine ctermfg=100 ctermbg=100 guibg=#39382f
 
 " ================ Java Complete ================
-"autocmd FileType java setlocal omnifunc=javacomplete#Complete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+nmap <leader>jI <Plug>(JavaComplete-Imports-AddMissing)
+nmap <leader>jR <Plug>(JavaComplete-Imports-RemoveUnused)
+nmap <leader>ji <Plug>(JavaComplete-Imports-AddSmart)
+nmap <leader>jii <Plug>(JavaComplete-Imports-Add)
 
 " ====== Make tabs be addressable via Apple+1 or 2 or 3, etc
 " Use numbers to pick the tab you want (like iTerm)

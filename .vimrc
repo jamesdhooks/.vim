@@ -200,18 +200,25 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 " ================ Java Compile ================
-map <F5> :call CompilePackage()<CR>
-map <F6> :call RunFile()<CR>
-func! CompilePackage()
+map <F5> :call SilentCompilePackage()<CR>
+map <F6> :call CompilePackage()<CR>
+
+func! SilentCompilePackage()
 silent exec "w"
 silent exec "!javac -sourcepath %p:h:h:h/src -d %:p:h:h:h/bin %:p:h/*.java"
 silent exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
-endfun
+endfunc
+
+func! CompilePackage()
+exec "w"
+exec "!javac -sourcepath %p:h:h:h/src -d %:p:h:h:h/bin %:p:h/*.java"
+exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
+endfunc
 
 func! RunFile()
 silent exec "w"
 silent exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
-endfun
+endfunc
 
 func! CompileJava()
 exec "w"
@@ -266,7 +273,7 @@ let g:syntastic_check_on_wq = 0
 "let b:syntastic_skip_checks = 0
 
 " Checkers
-let g:syntastic_java_checkers = ['checkstyle']
+let g:syntastic_java_checkers = ['checkstyle', 'javac']
 let g:syntastic_java_checkstyle_classpath = '~/.vim/checkstyle-7.5-all.jar'
 let g:syntastic_java_checkstyle_conf_file = '~/.vim/checks.xml'
 let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes':['java']}

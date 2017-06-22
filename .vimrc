@@ -46,8 +46,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " Java
-Plugin 'artur-shaik/vim-javacomplete2'
-Plugin 'SuperTab'
+"Plugin 'artur-shaik/vim-javacomplete2'
+"Plugin 'javacomplete'
+"Plugin 'SuperTab'
 
 " Ant
 "Plugin 'Ant'
@@ -146,6 +147,12 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 
+" ================ Directory ================ 
+set autochdir
+
+" ================ Python ================ 
+nnoremap <F9> :!python -B %<cr>
+
 " ================ Whitespace ================
 " Strips whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -156,7 +163,7 @@ map <Leader>n <esc>:NERDTreeToggle<cr>
 " Reveal current file in NERDTree with <Leader>r
 map <Leader>r <esc>:NERDTreeFind<cr>
 " Open bookmark to class projects
-map <Leader>o <esc>:NERDTreeFromBookmark 207<cr>
+map <Leader>o <esc>:NERDTreeFromBookmark School<cr>
 " Open bookmark to Vim settings
 map <Leader>v <esc>:NERDTreeFromBookmark Vim<cr>
 
@@ -296,11 +303,18 @@ hi SyntasticStyleWarningSign ctermfg=100 ctermbg=100 guifg=#2c96fd guibg=#203345
 hi SyntasticStyleWarningLine ctermfg=100 ctermbg=100 guibg=#39382f
 
 " ================ Java Complete ================
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-nmap <leader>jI <Plug>(JavaComplete-Imports-AddMissing)
-nmap <leader>jR <Plug>(JavaComplete-Imports-RemoveUnused)
-nmap <leader>ji <Plug>(JavaComplete-Imports-AddSmart)
-nmap <leader>jii <Plug>(JavaComplete-Imports-Add)
+"autocmd FileType java setlocal omnifunc=javacomplete#Complete
+"nmap <leader>jI <Plug>(JavaComplete-Imports-AddMissing)
+"nmap <leader>jR <Plug>(JavaComplete-Imports-RemoveUnused)
+"nmap <leader>ji <Plug>(JavaComplete-Imports-AddSmart)
+"
+"nmap <leader>jii <Plug>(JavaComplete-Imports-Add)
+
+"call javacomplete#SetClassPath('~/Dropbox/School/csc207/group_0368/project/bin/Warehouse')
+"call javacomplete#SetSourcePath('~/Dropbox/School/csc207/group_0368/project/src')
+
+"let g:JavaComplete_LibsPath = '~/Dropbox/School/csc207/group_0368/project/bin'
+"let g:JavaComplete_SourcesPath = '~/Dropbox/School/csc207/group_0368/project/src'
 
 " ====== Make tabs be addressable via Apple+1 or 2 or 3, etc
 " Use numbers to pick the tab you want (like iTerm)

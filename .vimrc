@@ -1,6 +1,4 @@
 syntax on                       "Turn on syntax highlighting
-filetype off                    "Required
-set encoding=utf-8
 scriptencoding utf-8
 set noshowmode
 
@@ -45,6 +43,11 @@ Plugin 'fugitive.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+"Plugin 'Rainbow-Parenthesis'
+Plugin 'rainbow_parentheses.vim'
+
+"Auto-Pairs
+Plugin 'Auto-Pairs'
 " Java
 "Plugin 'artur-shaik/vim-javacomplete2'
 "Plugin 'javacomplete'
@@ -127,12 +130,15 @@ set sidescrolloff=15
 set sidescroll=1
 
 " ================ Visual Settings ================
-colorscheme molokai
 colorscheme superduper
 if has('win32')
+    "colorscheme superduper
     set guifont=DejaVu\ Sans\ Mono\ for\ PowerLine:h10
     "set guifont=DejaVu_Sans_Mono_for_PowerLine:h10
 elseif has('mac')
+    "colorscheme desert
+    "colorscheme molokai
+    "colorscheme superduper
     set guifont=DejaVu_Sans_Mono_for_Powerline:h12
 endif
 
@@ -174,6 +180,13 @@ map <Leader>u <esc>:UpdateTypesFile<cr>
 map <Leader>s <esc>:Gstatus<cr>
 map <Leader>a <esc>:Git add -u<cr>:Gcommit<cr>
 map <Leader>p <esc>:Git push<cr>
+
+" ================ Rainbow ================
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 " ================ Airline ================
 let g:airline_powerline_fonts=1

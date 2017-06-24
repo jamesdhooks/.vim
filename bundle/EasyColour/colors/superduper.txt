@@ -4,100 +4,67 @@ Colours:
   DarkGrey:#252929
   MidGrey:#7D8C93
   LitGrey:#E0E2E4
-
   Orange:#FD951F
   PinkRed:#F6437F
   LightYellow:#E6DB74
   Green:#7cd42f
   Cyan:#52cca7
   Purple:#ad81ff
-
   DarkBlue:#203345
   MidBlue:#325e88
   LightBlue:#2c96fd
   PowderBlue:#bed6ff	
   Undef:#FF00FF
-
   Test:#000000
-
 Dark:
   Normal:LitGrey,DarkGrey
   Comment:MidGrey
   NonText:@Comment
-
-  # Cursor
   LineNr:@Comment
   Cursor:DarkBlue,LightBlue
   CursorColumn:PinkRed,Cyan
   CursorLine:BG=DarkBlue
   CursorLineNr:LightBlue
-
-  #DoxygenKeyword:Test
-  #DocygenTable:Test
-  #DocygenTableLines:Test
-  #LinkComment:Test
-
-  # Numbers
+  DoxygenKeyword:Test
+  DocygenTable:Test
+  DocygenTableLines:Test
+  LinkComment:Test
   Constant:Purple
-
-  # new/instanceof
   Operator:PinkRed
-
-  # if
   Conditional:Orange
-  # i.e. int/void/ boolean 
   Type:@Conditional
-  # for/while
   Repeat:@Conditional
-
-  # let
   Statement:PinkRed
-
   String:LightYellow
   Character:@String
-
-  # vim variable
   Identifier:Orange
-
-
   Function:Green	
   Method:Green
-
   Class:LightBlue
   LocalVariable:LitGrey
   GlobalVariable:PinkRed
   GlobalConstant:PinkRed
-
   PreProc:Orange
   StorageClass:@PreProc
   Include:@PreProc
   PreCondit:@PreProc
   Exception:@PreProc
-
   Define,Macro:Cyan,Style=Bold
-
-# Java classes
   Field:LitGrey
   Interface:Undef
   Package:PinkRed
-
-# @tags
   Special:Cyan
   SpecialKey:@Special
-
   Error:LightGrey,PinkRed
-
   NonIndentTabError:SP=LightYellow,Style=Undercurl
   Todo:PinkRed,LightBlue
   FoldColumn:@Todo
-
   VertSplit:MidBlue
   StatusLine:MidGrey,DarkBlue
   StatusLineNC:@StatusLine
   SignColumn:MidGrey,DarkBlue
   SpellBad:Style=Undercurl,SP=PinkRed
   SpellCap:Style=Undercurl,SP=PinkRed
-
   Label:Orange
   DefinedName:@Label
   EnumerationValue:@Label
@@ -109,7 +76,6 @@ Dark:
   MatchParen:@Label
   Pmenu:@Label
   Title:@Label
-
   htmlH1:LightBlue
   htmlH2:@htmlH1
   htmlH3:@htmlH1
@@ -127,3 +93,5 @@ Dark:
   hlLevel7:@Delimiter
   hlLevel8:@Delimiter
   hlLevel9:@Delimiter
+
+# vim: ff=unix:noet:ft=EasyColour

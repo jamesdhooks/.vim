@@ -1,6 +1,5 @@
 AlignMapsPlugin
 AlignPlugin
-NERD_commenter
 ZoomWinPlugin
 ack
 bufexplorer

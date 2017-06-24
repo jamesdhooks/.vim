@@ -48,6 +48,7 @@ Plugin 'rainbow_parentheses.vim'
 
 "Auto-Pairs
 Plugin 'Auto-Pairs'
+
 " Java
 "Plugin 'artur-shaik/vim-javacomplete2'
 "Plugin 'javacomplete'

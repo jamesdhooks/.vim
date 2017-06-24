@@ -32,7 +32,7 @@ Dark:
   Constant:Purple
   Operator:PinkRed
   Conditional:Orange
-  Type:@Conditional
+  Type:LightBlue
   Repeat:@Conditional
   Statement:PinkRed
   String:LightYellow
@@ -44,7 +44,7 @@ Dark:
   LocalVariable:LitGrey
   GlobalVariable:PinkRed
   GlobalConstant:PinkRed
-  PreProc:Orange
+  PreProc:PinkRed
   StorageClass:@PreProc
   Include:@PreProc
   PreCondit:@PreProc

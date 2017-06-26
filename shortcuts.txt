@@ -1,5 +1,23 @@
-Vim:
-/, search, * forward, # backwards
+Movement:
+http://vim.wikia.com/wiki/All_the_right_moves
+http://vim.wikia.com/wiki/Moving_around
+$/0 beginning/end of line
+/ search, n next, N previous
+*/# next/previous word under cursor
+% jump to matching bracket
+
+J combine lines
+H top of view
+M middle of view
+L bottom of view
+{/} previous/next paragraph
+(/) previous/next sentence
+
+mx set mark
+'x jump to mark line
+`x jump to mark cursor
+
+General:
  v, new split window
 gf, go file, for linking .vimrc with source C:/.../.vimrc
 viwp, replace word with yanked word
@@ -12,28 +30,21 @@ gg=G, indent whole file
 :h, head/parent of path
 :t, current file/directory only, (removes rest of path)
 :r, remove file extension
-:echo, say variable 
+:echo, say variable
 :echo expand("%:p:h"), test path variable
-
-Movement:
-J, combine lines
-H, top of view
-L, bottom of view
-{, previous paragraph
-}, next paragraph
 
 NerdTree:
 gs, split vertical but keep focus on nt
 
 Syntastic
-:SyntasticCheck
+:SyntasticCheck / <Leader>c
 
 TagHightlight
-:UpdateTypesFile
+:UpdateTypesFile / <Leader> u
 
 Git:
-add -u, adds all modified files
-status -uno, --untracked-files=no
+add -u, adds all modified files / <Leader> A
+status -uno, --untracked-files=no / <Leader> S
 //  Fixes the stupid ass ^M problem
 --global core.autocrlf input
 

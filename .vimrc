@@ -1,4 +1,5 @@
 syntax on                       "Turn on syntax highlighting
+set encoding=utf-8
 scriptencoding utf-8
 set noshowmode
 
@@ -30,9 +31,6 @@ Plugin 'scrooloose/nerdcommenter'
 " Tag Highlight
 Plugin 'TagHighlight'
 
-" Easy Color
-Plugin 'EasyColour'
-
 " Syntax highlighting
 Plugin 'syntastic'
 
@@ -50,23 +48,16 @@ Plugin 'rainbow_parentheses.vim'
 "Plugin 'Auto-Pairs'
 Plugin 'jiangmiao/auto-pairs'
 
-"You complete me
-Plugin 'Valloric/YouCompleteMe'
-
-" Tag bar
-Plugin 'Tagbar'
-
-"Omni
-Plugin 'OmniSharp/omnisharp-vim'
-
-" Java
-"Plugin 'artur-shaik/vim-javacomplete2'
-"Plugin 'javacomplete'
-"Plugin 'SuperTab'
-
-" Ant
-"Plugin 'Ant'
-"Plugin 'mcant.vim'
+if has('win32') || has('mac')
+    " Easy Color
+    Plugin 'EasyColour'
+    "You complete me
+    Plugin 'Valloric/YouCompleteMe'
+    
+    "Omni & dispath
+    Plugin 'OmniSharp/omnisharp-vim'
+    Plugin 'tpope/vim-dispatch.git'
+endif
 
 call vundle#end()
 filetype plugin indent on
@@ -90,7 +81,6 @@ set autoread                    "Reload files changed outside vim
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
-
 " ================ Folding ================
 "set foldenable    " disable folding
 "set foldlevel=20
@@ -110,9 +100,15 @@ set nowb
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+if has('win32') || has('max')
+    set shiftwidth=2
+    set softtabstop=2
+    set tabstop=2
+else
+    set shiftwidth=4
+    set softtabstop=4
+    set tabstop=4
+endif
 set expandtab
 
 " Display tabs and trailing spaces visually
@@ -141,16 +137,17 @@ set sidescrolloff=15
 set sidescroll=1
 
 " ================ Visual Settings ================
-colorscheme simpleduper
 "colorscheme superduper
+if has('win32') || has('max')
+    colorscheme simpleduper
+else
+    colorscheme molokai
+endif
+
 if has('win32')
-    "colorscheme superduper
     set guifont=DejaVu\ Sans\ Mono\ for\ PowerLine:h10
-    "set guifont=DejaVu_Sans_Mono_for_PowerLine:h10
+    au GUIEnter * simalt ~x
 elseif has('mac')
-    "colorscheme desert
-    "colorscheme molokai
-    "colorscheme superduper
     set guifont=DejaVu_Sans_Mono_for_Powerline:h12
 endif
 
@@ -165,10 +162,10 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 
-" ================ Directory ================ 
+" ================ Directory ================
 set autochdir
 
-" ================ Python ================ 
+" ================ Python ================
 nnoremap <F9> :!python -B %<cr>
 
 " ================ Whitespace ================
@@ -184,6 +181,8 @@ map <Leader>r <esc>:NERDTreeFind<cr>
 map <Leader>o <esc>:NERDTreeFromBookmark School<cr>
 " Open bookmark to Vim settings
 map <Leader>v <esc>:NERDTreeFromBookmark Vim<cr>
+" Open bookmark to Hood project
+map <Leader>h <esc>:NERDTreeFromBookmark Hood<cr>
 
 " ================ Tag Highlight ===============
 map <Leader>u <esc>:UpdateTypesFile<cr>
@@ -205,8 +204,7 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " ================ Airline ================
 let g:airline_powerline_fonts=1
-"let g:airline_theme = 'murmur'
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'raven'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -238,61 +236,6 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-
-" ================ Java Compile ================
-"map <F5> :call SilentCompilePackage()<CR>
-"map <F6> :call CompilePackage()<CR>
-
-func! SilentCompilePackage()
-silent exec "w"
-silent exec "!javac -sourcepath %p:h:h:h/src -d %:p:h:h:h/bin %:p:h/*.java"
-silent exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
-endfunc
-
-func! CompilePackage()
-exec "w"
-exec "!javac -sourcepath %p:h:h:h/src -d %:p:h:h:h/bin %:p:h/*.java"
-exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
-endfunc
-
-func! RunFile()
-silent exec "w"
-silent exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
-endfunc
-
-func! CompileJava()
-exec "w"
-if &filetype == 'java'
-exec "!javac %"
-exec "!time java -cp %:p:h %:t:r"
-endif
-endfunc
-
-func! CompileRunGcc()
-exec "w"
-if &filetype == 'c'
-exec "!gcc % -o %<"
-exec "!time ./%<"
-elseif &filetype == 'cpp'
-exec "!g++ % -o %<"
-exec "!time ./%<"
-elseif &filetype == 'java'
-exec "!javac %"
-exec "!time java -cp %:p:h %:t:r"
-elseif &filetype == 'sh'
-exec "!time bash %"
-elseif &filetype == 'python'
-exec "!time python2.7 %"
-elseif &filetype == 'html'
-exec "!firefox % &"
-elseif &filetype == 'go'
-exec "!go build %<"
-exec "!time go run %"
-elseif &filetype == 'mkd'
-exec "!~/.vim/markdown.pl % > %.html &"
-exec "!firefox %.html &"
-endif
-endfunc
 
 " ================ Synastic ================
 map <Leader>c <esc>:SyntasticCheck<cr>
@@ -331,19 +274,12 @@ let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes':['java']}
 hi SyntasticStyleWarningSign ctermfg=100 ctermbg=100 guifg=#2c96fd guibg=#203345
 hi SyntasticStyleWarningLine ctermfg=100 ctermbg=100 guibg=#39382f
 
-" ================ Java Complete ================
-"autocmd FileType java setlocal omnifunc=javacomplete#Complete
-"nmap <leader>jI <Plug>(JavaComplete-Imports-AddMissing)
-"nmap <leader>jR <Plug>(JavaComplete-Imports-RemoveUnused)
-"nmap <leader>ji <Plug>(JavaComplete-Imports-AddSmart)
-"
-"nmap <leader>jii <Plug>(JavaComplete-Imports-Add)
-
-"call javacomplete#SetClassPath('~/Dropbox/School/csc207/group_0368/project/bin/Warehouse')
-"call javacomplete#SetSourcePath('~/Dropbox/School/csc207/group_0368/project/src')
-
-"let g:JavaComplete_LibsPath = '~/Dropbox/School/csc207/group_0368/project/bin'
-"let g:JavaComplete_SourcesPath = '~/Dropbox/School/csc207/group_0368/project/src'
+" ================ You Complete Me ================
+"let g:ycm_min_num_of_chars_for_completion = 3
+"let g:ycm_min_num_identifier_candidate_chars = 3
+" Completion comes with . or <C-Space>
+"let g:ycm_auto_trigger = 0
+"let g:ycm_filetype_whitelist = {'csharp':1, 'python':1, 'cpp':1}
 
 " ====== Make tabs be addressable via Apple+1 or 2 or 3, etc
 " Use numbers to pick the tab you want (like iTerm)
@@ -356,3 +292,58 @@ map <silent> <D-6> :tabn 6<cr>
 map <silent> <D-7> :tabn 7<cr>
 map <silent> <D-8> :tabn 8<cr>
 map <silent> <D-9> :tabn 9<cr>
+
+" ================ Java Compile ================
+map <F5> :call SilentCompilePackage()<CR>
+map <F6> :call CompilePackage()<CR>
+
+func! SilentCompilePackage()
+    silent exec "w"
+    silent exec "!javac -sourcepath %p:h:h:h/src -d %:p:h:h:h/bin %:p:h/*.java"
+    silent exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
+endfunc
+
+func! CompilePackage()
+    exec "w"
+    exec "!javac -sourcepath %p:h:h:h/src -d %:p:h:h:h/bin %:p:h/*.java"
+    exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
+endfunc
+
+func! RunFile()
+    silent exec "w"
+    silent exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
+endfunc
+
+func! CompileJava()
+    exec "w"
+    if &filetype == 'java'
+        exec "!javac %"
+        exec "!time java -cp %:p:h %:t:r"
+    endif
+endfunc
+
+func! CompileRunGcc()
+    exec "w"
+    if &filetype == 'c'
+        exec "!gcc % -o %<"
+        exec "!time ./%<"
+    elseif &filetype == 'cpp'
+        exec "!g++ % -o %<"
+        exec "!time ./%<"
+    elseif &filetype == 'java'
+        exec "!javac %"
+        exec "!time java -cp %:p:h %:t:r"
+    elseif &filetype == 'sh'
+        exec "!time bash %"
+    elseif &filetype == 'python'
+        exec "!time python2.7 %"
+    elseif &filetype == 'html'
+        exec "!firefox % &"
+    elseif &filetype == 'go'
+        exec "!go build %<"
+        exec "!time go run %"
+    elseif &filetype == 'mkd'
+        exec "!~/.vim/markdown.pl % > %.html &"
+        exec "!firefox %.html &"
+    endif
+endfunc

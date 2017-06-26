@@ -62,9 +62,9 @@ Dark:
   Package:PinkRed
   Special:Cyan
   SpecialKey:@Special
-  Error:LightGrey,Peach
+  Error:LightGrey,PinkRed
   NonIndentTabError:SP=LightYellow,Style=Undercurl
-  Todo:Peach,LightBlue
+  Todo:LitGrey,LightBlue
   FoldColumn:@Todo
   VertSplit:BlueGreen
   StatusLine:MidGrey,BlueGreen
@@ -72,7 +72,7 @@ Dark:
   SignColumn:MidGrey,DarkBlue
   SpellBad:Style=Undercurl,SP=PinkRed
   SpellCap:Style=Undercurl,SP=PinkRed
-  Label:Peach
+  Label:Plum
   DefinedName:@Label
   EnumerationValue:@Label
   EnumerationName:@Label

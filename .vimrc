@@ -135,6 +135,7 @@ if has('win32')
     "colorscheme superduper
     set guifont=DejaVu\ Sans\ Mono\ for\ PowerLine:h10
     "set guifont=DejaVu_Sans_Mono_for_PowerLine:h10
+    au GUIEnter * simalt ~x
 elseif has('mac')
     "colorscheme desert
     "colorscheme molokai
@@ -153,10 +154,10 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 
-" ================ Directory ================ 
+" ================ Directory ================
 set autochdir
 
-" ================ Python ================ 
+" ================ Python ================
 nnoremap <F9> :!python -B %<cr>
 
 " ================ Whitespace ================
@@ -192,7 +193,8 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " ================ Airline ================
 let g:airline_powerline_fonts=1
-let g:airline_theme = 'murmur'
+let g:airline_theme = 'raven'
+"let g:airline_theme = 'murmur'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif

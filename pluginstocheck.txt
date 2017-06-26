@@ -11,7 +11,6 @@ csspretty
 ctrlp
 debugger
 endwise
-fugitive
 indent-object
 matchit
 rails

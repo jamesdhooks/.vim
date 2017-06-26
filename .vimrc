@@ -1,4 +1,5 @@
 syntax on                       "Turn on syntax highlighting
+set encoding=utf-8
 scriptencoding utf-8
 set noshowmode
 
@@ -52,14 +53,9 @@ Plugin 'Auto-Pairs'
 "You complete me
 Plugin 'Valloric/YouCompleteMe'
 
-" Java
-"Plugin 'artur-shaik/vim-javacomplete2'
-"Plugin 'javacomplete'
-"Plugin 'SuperTab'
-
-" Ant
-"Plugin 'Ant'
-"Plugin 'mcant.vim'
+"Omni & dispath
+Plugin 'OmniSharp/omnisharp-vim'
+Plugin 'tpope/vim-dispatch.git'
 
 call vundle#end()
 filetype plugin indent on
@@ -82,7 +78,6 @@ set autoread                    "Reload files changed outside vim
 " exist in the background without being in a window.
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
-
 
 " ================ Folding ================
 "set foldenable    " disable folding
@@ -177,6 +172,8 @@ map <Leader>r <esc>:NERDTreeFind<cr>
 map <Leader>o <esc>:NERDTreeFromBookmark School<cr>
 " Open bookmark to Vim settings
 map <Leader>v <esc>:NERDTreeFromBookmark Vim<cr>
+" Open bookmark to Hood project
+map <Leader>h <esc>:NERDTreeFromBookmark Hood<cr>
 
 " ================ Tag Highlight ===============
 map <Leader>u <esc>:UpdateTypesFile<cr>
@@ -227,6 +224,62 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+" ================ Synastic ================
+map <Leader>c <esc>:SyntasticCheck<cr>
+"mark syntax errors with :signs
+let g:syntastic_enable_signs=1
+"automatically jump to the error when saving the file
+let g:syntastic_auto_jump=0
+"show the error list automatically
+"let g:syntastic_auto_loc_list=1
+"don't care about warnings
+"let g:syntastic_quiet_messages={'level': 'warnings'}
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_debug = 8
+"let b:syntastic_skip_checks = 0
+
+" Checkers
+let g:syntastic_java_checkers = ['checkstyle', 'javac']
+let g:syntastic_java_checkstyle_classpath = '~/.vim/checkstyle-7.5-all.jar'
+let g:syntastic_java_checkstyle_conf_file = '~/.vim/checks.xml'
+let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes':['java']}
+
+" Colors
+" SyntasticErrorSign
+" SyntasticWarningSign
+" SyntasticStyleErrorSigh
+" SyntasticStyleWarningSign
+" SyntasticErrorLine
+" SyntasticWarningLine
+" SyntasticStyleErrorLine
+" SyntasticStyleWarningLine
+
+hi SyntasticStyleWarningSign ctermfg=100 ctermbg=100 guifg=#2c96fd guibg=#203345
+hi SyntasticStyleWarningLine ctermfg=100 ctermbg=100 guibg=#39382f
+
+" ================ You Complete Me ================
+"let g:ycm_min_num_of_chars_for_completion = 3
+"let g:ycm_min_num_identifier_candidate_chars = 3
+" Completion comes with . or <C-Space>
+"let g:ycm_auto_trigger = 0
+"let g:ycm_filetype_whitelist = {'csharp':1, 'python':1, 'cpp':1}
+
+" ====== Make tabs be addressable via Apple+1 or 2 or 3, etc
+" Use numbers to pick the tab you want (like iTerm)
+map <silent> <D-1> :tabn 1<cr>
+map <silent> <D-2> :tabn 2<cr>
+map <silent> <D-3> :tabn 3<cr>
+map <silent> <D-4> :tabn 4<cr>
+map <silent> <D-5> :tabn 5<cr>
+map <silent> <D-6> :tabn 6<cr>
+map <silent> <D-7> :tabn 7<cr>
+map <silent> <D-8> :tabn 8<cr>
+map <silent> <D-9> :tabn 9<cr>
 
 " ================ Java Compile ================
 map <F5> :call SilentCompilePackage()<CR>
@@ -283,65 +336,3 @@ exec "!firefox %.html &"
 endif
 endfunc
 
-" ================ Synastic ================
-map <Leader>c <esc>:SyntasticCheck<cr>
-"mark syntax errors with :signs
-let g:syntastic_enable_signs=1
-"automatically jump to the error when saving the file
-let g:syntastic_auto_jump=0
-"show the error list automatically
-"let g:syntastic_auto_loc_list=1
-"don't care about warnings
-"let g:syntastic_quiet_messages={'level': 'warnings'}
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_debug = 8
-"let b:syntastic_skip_checks = 0
-
-" Checkers
-let g:syntastic_java_checkers = ['checkstyle', 'javac']
-let g:syntastic_java_checkstyle_classpath = '~/.vim/checkstyle-7.5-all.jar'
-let g:syntastic_java_checkstyle_conf_file = '~/.vim/checks.xml'
-let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes':['java']}
-
-" Colors
-" SyntasticErrorSign
-" SyntasticWarningSign
-" SyntasticStyleErrorSigh
-" SyntasticStyleWarningSign
-" SyntasticErrorLine
-" SyntasticWarningLine
-" SyntasticStyleErrorLine
-" SyntasticStyleWarningLine
-
-hi SyntasticStyleWarningSign ctermfg=100 ctermbg=100 guifg=#2c96fd guibg=#203345
-hi SyntasticStyleWarningLine ctermfg=100 ctermbg=100 guibg=#39382f
-
-" ================ Java Complete ================
-"autocmd FileType java setlocal omnifunc=javacomplete#Complete
-"nmap <leader>jI <Plug>(JavaComplete-Imports-AddMissing)
-"nmap <leader>jR <Plug>(JavaComplete-Imports-RemoveUnused)
-"nmap <leader>ji <Plug>(JavaComplete-Imports-AddSmart)
-"
-"nmap <leader>jii <Plug>(JavaComplete-Imports-Add)
-
-"call javacomplete#SetClassPath('~/Dropbox/School/csc207/group_0368/project/bin/Warehouse')
-"call javacomplete#SetSourcePath('~/Dropbox/School/csc207/group_0368/project/src')
-
-"let g:JavaComplete_LibsPath = '~/Dropbox/School/csc207/group_0368/project/bin'
-"let g:JavaComplete_SourcesPath = '~/Dropbox/School/csc207/group_0368/project/src'
-
-" ====== Make tabs be addressable via Apple+1 or 2 or 3, etc
-" Use numbers to pick the tab you want (like iTerm)
-map <silent> <D-1> :tabn 1<cr>
-map <silent> <D-2> :tabn 2<cr>
-map <silent> <D-3> :tabn 3<cr>
-map <silent> <D-4> :tabn 4<cr>
-map <silent> <D-5> :tabn 5<cr>
-map <silent> <D-6> :tabn 6<cr>
-map <silent> <D-7> :tabn 7<cr>
-map <silent> <D-8> :tabn 8<cr>
-map <silent> <D-9> :tabn 9<cr>

@@ -11,328 +11,333 @@ set noshowmode
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+	set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+	" let Vundle manage Vundle, required
+	Plugin 'VundleVim/Vundle.vim'
 
-" colorschemes
-Plugin 'Solarized'
-Plugin 'molokai'
-Plugin 'h80'
+	" colorschemes
+	Plugin 'Solarized'
+	Plugin 'molokai'
+	Plugin 'h80'
 
-" file explorer
-Plugin 'scrooloose/nerdtree'
+	" file explorer
+	Plugin 'scrooloose/nerdtree'
 
-" Better commenting
-Plugin 'scrooloose/nerdcommenter'
+	" Better commenting
+	Plugin 'scrooloose/nerdcommenter'
 
-" Tag Highlight
-Plugin 'TagHighlight'
+	" Tag Highlight
+	Plugin 'TagHighlight'
 
-" Easy Color
-Plugin 'EasyColour'
+	" Syntax highlighting
+	Plugin 'syntastic'
 
-" Syntax highlighting
-Plugin 'syntastic'
+	" Git wrapper
+	Plugin 'fugitive.vim'
 
-" Git wrapper
-Plugin 'fugitive.vim'
+	" Airline status line
+	Plugin 'vim-airline/vim-airline'
+	Plugin 'vim-airline/vim-airline-themes'
 
-" Airline status line
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+	"Plugin 'Rainbow-Parenthesis'
+	Plugin 'rainbow_parentheses.vim'
 
-"Plugin 'Rainbow-Parenthesis'
-Plugin 'rainbow_parentheses.vim'
+	"Auto-Pairs
+	Plugin 'Auto-Pairs'
 
-"Auto-Pairs
-Plugin 'Auto-Pairs'
+	if has('win32') || has('mac')
+	" Easy Color
+	Plugin 'EasyColour'
+	"You complete me
+	Plugin 'Valloric/YouCompleteMe'
 
-"You complete me
-Plugin 'Valloric/YouCompleteMe'
-
-"Omni & dispath
-Plugin 'OmniSharp/omnisharp-vim'
-Plugin 'tpope/vim-dispatch.git'
+	"Omni & dispath
+	Plugin 'OmniSharp/omnisharp-vim'
+	Plugin 'tpope/vim-dispatch.git'
+	endif
 
 call vundle#end()
-filetype plugin indent on
+	filetype plugin indent on
 
-" =============== General ================
-set nocompatible                "Be iMproved, required
-set guioptions-=T		"Remove toolbar
-set guioptions-=r		"Remove right hand scroll
-set number			"Line numbers
-set cursorline
-set backspace=indent,eol,start	"Allow backspace in insert mode
-set history=1000                "Store lots of :cmdline history
-set showcmd                     "Show incomplete cmds down at the bottom
-set showmode                    "Show current mode down the bottom
-set gcr=a:blinkon0              "Disable cursor blink
-set visualbell                  "No sounds
-set t_vb=                       "No flash
-set autoread                    "Reload files changed outside vim
-" This makes vim act like all other editors, buffers can
-" exist in the background without being in a window.
-" http://items.sjbach.com/319/configuring-vim-right
-set hidden
+	" =============== General ================
+	set nocompatible                "Be iMproved, required
+	set guioptions-=T		"Remove toolbar
+	set guioptions-=r		"Remove right hand scroll
+	set number			"Line numbers
+	set cursorline
+	set backspace=indent,eol,start	"Allow backspace in insert mode
+	set history=1000                "Store lots of :cmdline history
+	set showcmd                     "Show incomplete cmds down at the bottom
+	set showmode                    "Show current mode down the bottom
+	set gcr=a:blinkon0              "Disable cursor blink
+	set visualbell                  "No sounds
+	set t_vb=                       "No flash
+	set autoread                    "Reload files changed outside vim
+	" This makes vim act like all other editors, buffers can
+	" exist in the background without being in a window.
+	" http://items.sjbach.com/319/configuring-vim-right
+	set hidden
 
-" ================ Folding ================
-"set foldenable    " disable folding
-"set foldlevel=20
-"set foldnestmax=10
-"set foldmethod=indent
+	" ================ Folding ================
+	"set foldenable    " disable folding
+	"set foldlevel=20
+	"set foldnestmax=10
+	"set foldmethod=indent
 
-" open and close folds
-nnoremap <space> za
-nnoremap <space>o zA
+	" open and close folds
+	nnoremap <space> za
+	nnoremap <space>o zA
 
-" ================ Turn Off Swap Files ==============
-set noswapfile
-set nobackup
-set nowb
+	" ================ Turn Off Swap Files ==============
+	set noswapfile
+	set nobackup
+	set nowb
 
-" ================ Indentation ======================
-set autoindent
-set smartindent
-set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab
+	" ================ Indentation ======================
+	set autoindent
+	set smartindent
+	set smarttab
+	set shiftwidth=2
+	set softtabstop=2
+	set tabstop=2
+	set expandtab
 
-" Display tabs and trailing spaces visually
-"set list listchars=tab:\ \ ,trail:ÃÂ·
-set wrap       "Wrap lines
-set linebreak    "Wrap lines at convenient points
+	" Display tabs and trailing spaces visually
+	"set list listchars=tab:\ \ ,trail:ÃÂ·
+	set wrap       "Wrap lines
+	set linebreak    "Wrap lines at convenient points
 
-" ================ Completion =======================
-set wildmode=list:longest
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-set wildignore+=*vim/backups*
-set wildignore+=*sass-cache*
-set wildignore+=*DS_Store*
-set wildignore+=vendor/rails/**
-set wildignore+=vendor/cache/**
-set wildignore+=.gem
-set wildignore+=*.DAT
-set wildignore+=log/**
-set wildignore+=tmp/**
-set wildignore+=*.png,*.jpg,*.gif
+	" ================ Completion =======================
+	set wildmode=list:longest
+	set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+	set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+	set wildignore+=*vim/backups*
+	set wildignore+=*sass-cache*
+	set wildignore+=*DS_Store*
+	set wildignore+=vendor/rails/**
+				      set wildignore+=vendor/cache/**
+				      set wildignore+=.gem
+				      set wildignore+=*.DAT
+				      set wildignore+=log/**
+				      set wildignore+=tmp/**
+				      set wildignore+=*.png,*.jpg,*.gif
 
-" ================ Scrolling ========================
-set scrolloff=8         "Start scrolling when we're 8 lines away from margins
-set sidescrolloff=15
-set sidescroll=1
+				      " ================ Scrolling ========================
+				      set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+				      set sidescrolloff=15
+				      set sidescroll=1
 
-" ================ Visual Settings ================
-colorscheme simpleduper
-"colorscheme superduper
-if has('win32')
-    "colorscheme superduper
-    set guifont=DejaVu\ Sans\ Mono\ for\ PowerLine:h10
-    "set guifont=DejaVu_Sans_Mono_for_PowerLine:h10
-elseif has('mac')
-    "colorscheme desert
-    "colorscheme molokai
-    "colorscheme superduper
-    set guifont=DejaVu_Sans_Mono_for_Powerline:h12
-endif
+				      " ================ Visual Settings ================
+				      "colorscheme superduper
+				      if has('win32') || has('max')
+				      else
+				      colorscheme molokai
+				      endif
 
-" ================ Splitting and Movement ================
-" remap movement to move by column layout
-nnoremap j gj
-nnoremap k gk
-nnoremap <leader>w <C-w>v<C-w>l
-nnoremap <leader>q <C-w>s<C-w>j
-nnoremap <C-h> <C-w>h
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-j> <C-w>j
+				      if has('win32')
+				      "colorscheme superduper
+				      set guifont=DejaVu\ Sans\ Mono\ for\ PowerLine:h10
+				      "set guifont=DejaVu_Sans_Mono_for_PowerLine:h10
+				      elseif has('mac')
+				      "colorscheme desert
+				      "colorscheme molokai
+				      "colorscheme superduper
+				      set guifont=DejaVu_Sans_Mono_for_Powerline:h12
+				      endif
 
-" ================ Directory ================ 
-set autochdir
+				      " ================ Splitting and Movement ================
+				      " remap movement to move by column layout
+				      nnoremap j gj
+				      nnoremap k gk
+				      nnoremap <leader>w <C-w>v<C-w>l
+				      nnoremap <leader>q <C-w>s<C-w>j
+				      nnoremap <C-h> <C-w>h
+				      nnoremap <C-k> <C-w>k
+				      nnoremap <C-l> <C-w>l
+				      nnoremap <C-j> <C-w>j
 
-" ================ Python ================ 
-nnoremap <F9> :!python -B %<cr>
+				      " ================ Directory ================ 
+				      set autochdir
 
-" ================ Whitespace ================
-" Strips whitespace
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+				      " ================ Python ================ 
+				      nnoremap <F9> :!python -B %<cr>
 
-" ================ Nerd Tree ================
-" Open Nerd Tree with <Leader>n
-map <Leader>n <esc>:NERDTreeToggle<cr>
-" Reveal current file in NERDTree with <Leader>r
-map <Leader>r <esc>:NERDTreeFind<cr>
-" Open bookmark to class projects
-map <Leader>o <esc>:NERDTreeFromBookmark School<cr>
-" Open bookmark to Vim settings
-map <Leader>v <esc>:NERDTreeFromBookmark Vim<cr>
-" Open bookmark to Hood project
-map <Leader>h <esc>:NERDTreeFromBookmark Hood<cr>
+				      " ================ Whitespace ================
+				      " Strips whitespace
+				      nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
-" ================ Tag Highlight ===============
-map <Leader>u <esc>:UpdateTypesFile<cr>
+				      " ================ Nerd Tree ================
+				      " Open Nerd Tree with <Leader>n
+				      map <Leader>n <esc>:NERDTreeToggle<cr>
+				      " Reveal current file in NERDTree with <Leader>r
+				      map <Leader>r <esc>:NERDTreeFind<cr>
+				      " Open bookmark to class projects
+				      map <Leader>o <esc>:NERDTreeFromBookmark School<cr>
+				      " Open bookmark to Vim settings
+				      map <Leader>v <esc>:NERDTreeFromBookmark Vim<cr>
+				      " Open bookmark to Hood project
+				      map <Leader>h <esc>:NERDTreeFromBookmark Hood<cr>
 
-" ================ Fugitive ================
-map <Leader>s <esc>:Gstatus<cr>
-map <Leader>a <esc>:Git add -u<cr>:Gcommit<cr>
-map <Leader>p <esc>:Git push<cr>
+				      " ================ Tag Highlight ===============
+				      map <Leader>u <esc>:UpdateTypesFile<cr>
 
-" ================ Rainbow ================
-let g:rbpt_loadcmd_toggle = 0
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+				      " ================ Fugitive ================
+				      map <Leader>s <esc>:Gstatus<cr>
+				      map <Leader>a <esc>:Git add -u<cr>:Gcommit<cr>
+				      map <Leader>p <esc>:Git push<cr>
 
-" ================ Airline ================
-let g:airline_powerline_fonts=1
-let g:airline_theme = 'murmur'
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
+				      " ================ Rainbow ================
+				      let g:rbpt_loadcmd_toggle = 0
+				      au VimEnter * RainbowParenthesesToggle
+				      au Syntax * RainbowParenthesesLoadRound
+	au Syntax * RainbowParenthesesLoadSquare
+	au Syntax * RainbowParenthesesLoadBraces
 
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = '☰'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = 'Ξ'
+	" ================ Airline ================
+	let g:airline_powerline_fonts=1
+	let g:airline_theme = 'murmur'
+	if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+	endif
 
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+	" unicode symbols
+	let g:airline_left_sep = '»'
+	let g:airline_left_sep = '▶'
+	let g:airline_right_sep = '«'
+	let g:airline_right_sep = '◀'
+	let g:airline_symbols.crypt = '🔒'
+	let g:airline_symbols.linenr = '␊'
+	let g:airline_symbols.linenr = '␤'
+	let g:airline_symbols.linenr = '¶'
+	let g:airline_symbols.maxlinenr = '☰'
+	let g:airline_symbols.maxlinenr = ''
+	let g:airline_symbols.branch = '⎇'
+	let g:airline_symbols.paste = 'ρ'
+	let g:airline_symbols.paste = 'Þ'
+	let g:airline_symbols.paste = '∥'
+	let g:airline_symbols.spell = 'Ꞩ'
+	let g:airline_symbols.notexists = '∄'
+	let g:airline_symbols.whitespace = 'Ξ'
 
-" ================ Synastic ================
-map <Leader>c <esc>:SyntasticCheck<cr>
-"mark syntax errors with :signs
-let g:syntastic_enable_signs=1
-"automatically jump to the error when saving the file
-let g:syntastic_auto_jump=0
-"show the error list automatically
-"let g:syntastic_auto_loc_list=1
-"don't care about warnings
-"let g:syntastic_quiet_messages={'level': 'warnings'}
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_debug = 8
-"let b:syntastic_skip_checks = 0
+	" powerline symbols
+	let g:airline_left_sep = ''
+	let g:airline_left_alt_sep = ''
+	let g:airline_right_sep = ''
+	let g:airline_right_alt_sep = ''
+	let g:airline_symbols.branch = ''
+	let g:airline_symbols.readonly = ''
+	let g:airline_symbols.linenr = ''
 
-" Checkers
-let g:syntastic_java_checkers = ['checkstyle', 'javac']
-let g:syntastic_java_checkstyle_classpath = '~/.vim/checkstyle-7.5-all.jar'
-let g:syntastic_java_checkstyle_conf_file = '~/.vim/checks.xml'
-let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes':['java']}
+	" ================ Synastic ================
+	map <Leader>c <esc>:SyntasticCheck<cr>
+	"mark syntax errors with :signs
+	let g:syntastic_enable_signs=1
+	"automatically jump to the error when saving the file
+	let g:syntastic_auto_jump=0
+	"show the error list automatically
+	"let g:syntastic_auto_loc_list=1
+	"don't care about warnings
+	"let g:syntastic_quiet_messages={'level': 'warnings'}
+	let g:syntastic_check_on_open = 1
+	let g:syntastic_check_on_wq = 0
+	"set statusline+=%#warningmsg#
+	"set statusline+=%{SyntasticStatuslineFlag()}
+	"set statusline+=%*
+	"let g:syntastic_debug = 8
+	"let b:syntastic_skip_checks = 0
 
-" Colors
-" SyntasticErrorSign
-" SyntasticWarningSign
-" SyntasticStyleErrorSigh
-" SyntasticStyleWarningSign
-" SyntasticErrorLine
-" SyntasticWarningLine
-" SyntasticStyleErrorLine
-" SyntasticStyleWarningLine
+	" Checkers
+	let g:syntastic_java_checkers = ['checkstyle', 'javac']
+	let g:syntastic_java_checkstyle_classpath = '~/.vim/checkstyle-7.5-all.jar'
+	let g:syntastic_java_checkstyle_conf_file = '~/.vim/checks.xml'
+	let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes':['java']}
 
-hi SyntasticStyleWarningSign ctermfg=100 ctermbg=100 guifg=#2c96fd guibg=#203345
-hi SyntasticStyleWarningLine ctermfg=100 ctermbg=100 guibg=#39382f
+	" Colors
+	" SyntasticErrorSign
+	" SyntasticWarningSign
+	" SyntasticStyleErrorSigh
+	" SyntasticStyleWarningSign
+	" SyntasticErrorLine
+	" SyntasticWarningLine
+	" SyntasticStyleErrorLine
+	" SyntasticStyleWarningLine
 
-" ================ You Complete Me ================
-"let g:ycm_min_num_of_chars_for_completion = 3
-"let g:ycm_min_num_identifier_candidate_chars = 3
-" Completion comes with . or <C-Space>
-"let g:ycm_auto_trigger = 0
-"let g:ycm_filetype_whitelist = {'csharp':1, 'python':1, 'cpp':1}
+	hi SyntasticStyleWarningSign ctermfg=100 ctermbg=100 guifg=#2c96fd guibg=#203345
+	hi SyntasticStyleWarningLine ctermfg=100 ctermbg=100 guibg=#39382f
 
-" ====== Make tabs be addressable via Apple+1 or 2 or 3, etc
-" Use numbers to pick the tab you want (like iTerm)
-map <silent> <D-1> :tabn 1<cr>
-map <silent> <D-2> :tabn 2<cr>
-map <silent> <D-3> :tabn 3<cr>
-map <silent> <D-4> :tabn 4<cr>
-map <silent> <D-5> :tabn 5<cr>
-map <silent> <D-6> :tabn 6<cr>
-map <silent> <D-7> :tabn 7<cr>
-map <silent> <D-8> :tabn 8<cr>
-map <silent> <D-9> :tabn 9<cr>
+	" ================ You Complete Me ================
+	"let g:ycm_min_num_of_chars_for_completion = 3
+	"let g:ycm_min_num_identifier_candidate_chars = 3
+	" Completion comes with . or <C-Space>
+	"let g:ycm_auto_trigger = 0
+	"let g:ycm_filetype_whitelist = {'csharp':1, 'python':1, 'cpp':1}
 
-" ================ Java Compile ================
-map <F5> :call SilentCompilePackage()<CR>
-map <F6> :call CompilePackage()<CR>
+	" ====== Make tabs be addressable via Apple+1 or 2 or 3, etc
+	" Use numbers to pick the tab you want (like iTerm)
+	map <silent> <D-1> :tabn 1<cr>
+	map <silent> <D-2> :tabn 2<cr>
+	map <silent> <D-3> :tabn 3<cr>
+	map <silent> <D-4> :tabn 4<cr>
+	map <silent> <D-5> :tabn 5<cr>
+	map <silent> <D-6> :tabn 6<cr>
+	map <silent> <D-7> :tabn 7<cr>
+	map <silent> <D-8> :tabn 8<cr>
+	map <silent> <D-9> :tabn 9<cr>
+
+	" ================ Java Compile ================
+	map <F5> :call SilentCompilePackage()<CR>
+	map <F6> :call CompilePackage()<CR>
 
 func! SilentCompilePackage()
-silent exec "w"
-silent exec "!javac -sourcepath %p:h:h:h/src -d %:p:h:h:h/bin %:p:h/*.java"
-silent exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
-endfunc
+	silent exec "w"
+	silent exec "!javac -sourcepath %p:h:h:h/src -d %:p:h:h:h/bin %:p:h/*.java"
+	silent exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
+	endfunc
 
 func! CompilePackage()
-exec "w"
-exec "!javac -sourcepath %p:h:h:h/src -d %:p:h:h:h/bin %:p:h/*.java"
-exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
-endfunc
+	exec "w"
+	exec "!javac -sourcepath %p:h:h:h/src -d %:p:h:h:h/bin %:p:h/*.java"
+	exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
+	endfunc
 
 func! RunFile()
-silent exec "w"
-silent exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
-endfunc
+	silent exec "w"
+	silent exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
+	endfunc
 
 func! CompileJava()
-exec "w"
-if &filetype == 'java'
-exec "!javac %"
-exec "!time java -cp %:p:h %:t:r"
-endif
-endfunc
+	exec "w"
+	if &filetype == 'java'
+	exec "!javac %"
+	exec "!time java -cp %:p:h %:t:r"
+	endif
+	endfunc
 
 func! CompileRunGcc()
-exec "w"
-if &filetype == 'c'
-exec "!gcc % -o %<"
-exec "!time ./%<"
-elseif &filetype == 'cpp'
-exec "!g++ % -o %<"
-exec "!time ./%<"
-elseif &filetype == 'java'
-exec "!javac %"
-exec "!time java -cp %:p:h %:t:r"
-elseif &filetype == 'sh'
-exec "!time bash %"
-elseif &filetype == 'python'
-exec "!time python2.7 %"
-elseif &filetype == 'html'
-exec "!firefox % &"
-elseif &filetype == 'go'
-exec "!go build %<"
-exec "!time go run %"
-elseif &filetype == 'mkd'
-exec "!~/.vim/markdown.pl % > %.html &"
-exec "!firefox %.html &"
-endif
-endfunc
+	exec "w"
+	if &filetype == 'c'
+	exec "!gcc % -o %<"
+	exec "!time ./%<"
+	elseif &filetype == 'cpp'
+	exec "!g++ % -o %<"
+	exec "!time ./%<"
+	elseif &filetype == 'java'
+	exec "!javac %"
+	exec "!time java -cp %:p:h %:t:r"
+	elseif &filetype == 'sh'
+	exec "!time bash %"
+	elseif &filetype == 'python'
+	exec "!time python2.7 %"
+	elseif &filetype == 'html'
+	exec "!firefox % &"
+	elseif &filetype == 'go'
+	exec "!go build %<"
+	exec "!time go run %"
+	elseif &filetype == 'mkd'
+	exec "!~/.vim/markdown.pl % > %.html &"
+	exec "!firefox %.html &"
+	endif
+	endfunc
 

@@ -47,10 +47,17 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rainbow_parentheses.vim'
 
 "Auto-Pairs
-Plugin 'Auto-Pairs'
+"Plugin 'Auto-Pairs'
+Plugin 'jiangmiao/auto-pairs'
 
 "You complete me
 Plugin 'Valloric/YouCompleteMe'
+
+" Tag bar
+Plugin 'Tagbar'
+
+"Omni
+Plugin 'OmniSharp/omnisharp-vim'
 
 " Java
 "Plugin 'artur-shaik/vim-javacomplete2'
@@ -186,6 +193,9 @@ map <Leader>s <esc>:Gstatus<cr>
 map <Leader>a <esc>:Git add -u<cr>:Gcommit<cr>
 map <Leader>p <esc>:Git push<cr>
 
+" ================ Auto Pairs ================
+"let g:AutoPairsShortcutFastWrap='<Leader>e'
+
 " ================ Rainbow ================
 let g:rbpt_loadcmd_toggle = 0
 au VimEnter * RainbowParenthesesToggle
@@ -195,7 +205,8 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " ================ Airline ================
 let g:airline_powerline_fonts=1
-let g:airline_theme = 'murmur'
+"let g:airline_theme = 'murmur'
+let g:airline_theme = 'molokai'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -229,8 +240,8 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 " ================ Java Compile ================
-map <F5> :call SilentCompilePackage()<CR>
-map <F6> :call CompilePackage()<CR>
+"map <F5> :call SilentCompilePackage()<CR>
+"map <F6> :call CompilePackage()<CR>
 
 func! SilentCompilePackage()
 silent exec "w"

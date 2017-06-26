@@ -31,9 +31,6 @@ Plugin 'scrooloose/nerdcommenter'
 " Tag Highlight
 Plugin 'TagHighlight'
 
-" Easy Color
-Plugin 'EasyColour'
-
 " Syntax highlighting
 Plugin 'syntastic'
 
@@ -50,12 +47,16 @@ Plugin 'rainbow_parentheses.vim'
 "Auto-Pairs
 Plugin 'Auto-Pairs'
 
-"You complete me
-Plugin 'Valloric/YouCompleteMe'
+if has('win32') || has('mac')
+    " Easy Color
+    Plugin 'EasyColour'
+    "You complete me
+    Plugin 'Valloric/YouCompleteMe'
 
-"Omni & dispath
-Plugin 'OmniSharp/omnisharp-vim'
-Plugin 'tpope/vim-dispatch.git'
+    "Omni & dispath
+    Plugin 'OmniSharp/omnisharp-vim'
+    Plugin 'tpope/vim-dispatch.git'
+endif
 
 call vundle#end()
 filetype plugin indent on
@@ -98,9 +99,15 @@ set nowb
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+if has('win32') || has('max')
+    set shiftwidth=2
+    set softtabstop=2
+    set tabstop=2
+else
+    set shiftwidth=4
+    set softtabstop=4
+    set tabstop=4
+endif
 set expandtab
 
 " Display tabs and trailing spaces visually
@@ -129,17 +136,17 @@ set sidescrolloff=15
 set sidescroll=1
 
 " ================ Visual Settings ================
-colorscheme simpleduper
 "colorscheme superduper
+if has('win32') || has('max')
+    colorscheme simpleduper
+else
+    colorscheme molokai
+endif
+
 if has('win32')
-    "colorscheme superduper
     set guifont=DejaVu\ Sans\ Mono\ for\ PowerLine:h10
-    "set guifont=DejaVu_Sans_Mono_for_PowerLine:h10
     au GUIEnter * simalt ~x
 elseif has('mac')
-    "colorscheme desert
-    "colorscheme molokai
-    "colorscheme superduper
     set guifont=DejaVu_Sans_Mono_for_Powerline:h12
 endif
 
@@ -288,53 +295,53 @@ map <F5> :call SilentCompilePackage()<CR>
 map <F6> :call CompilePackage()<CR>
 
 func! SilentCompilePackage()
-silent exec "w"
-silent exec "!javac -sourcepath %p:h:h:h/src -d %:p:h:h:h/bin %:p:h/*.java"
-silent exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
+    silent exec "w"
+    silent exec "!javac -sourcepath %p:h:h:h/src -d %:p:h:h:h/bin %:p:h/*.java"
+    silent exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
 endfunc
 
 func! CompilePackage()
-exec "w"
-exec "!javac -sourcepath %p:h:h:h/src -d %:p:h:h:h/bin %:p:h/*.java"
-exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
+    exec "w"
+    exec "!javac -sourcepath %p:h:h:h/src -d %:p:h:h:h/bin %:p:h/*.java"
+    exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
 endfunc
 
 func! RunFile()
-silent exec "w"
-silent exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
+    silent exec "w"
+    silent exec "!java -cp %:p:h:h:h/bin %:p:h:t/"."%:t:r"
 endfunc
 
 func! CompileJava()
-exec "w"
-if &filetype == 'java'
-exec "!javac %"
-exec "!time java -cp %:p:h %:t:r"
-endif
+    exec "w"
+    if &filetype == 'java'
+        exec "!javac %"
+        exec "!time java -cp %:p:h %:t:r"
+    endif
 endfunc
 
 func! CompileRunGcc()
-exec "w"
-if &filetype == 'c'
-exec "!gcc % -o %<"
-exec "!time ./%<"
-elseif &filetype == 'cpp'
-exec "!g++ % -o %<"
-exec "!time ./%<"
-elseif &filetype == 'java'
-exec "!javac %"
-exec "!time java -cp %:p:h %:t:r"
-elseif &filetype == 'sh'
-exec "!time bash %"
-elseif &filetype == 'python'
-exec "!time python2.7 %"
-elseif &filetype == 'html'
-exec "!firefox % &"
-elseif &filetype == 'go'
-exec "!go build %<"
-exec "!time go run %"
-elseif &filetype == 'mkd'
-exec "!~/.vim/markdown.pl % > %.html &"
-exec "!firefox %.html &"
-endif
+    exec "w"
+    if &filetype == 'c'
+        exec "!gcc % -o %<"
+        exec "!time ./%<"
+    elseif &filetype == 'cpp'
+        exec "!g++ % -o %<"
+        exec "!time ./%<"
+    elseif &filetype == 'java'
+        exec "!javac %"
+        exec "!time java -cp %:p:h %:t:r"
+    elseif &filetype == 'sh'
+        exec "!time bash %"
+    elseif &filetype == 'python'
+        exec "!time python2.7 %"
+    elseif &filetype == 'html'
+        exec "!firefox % &"
+    elseif &filetype == 'go'
+        exec "!go build %<"
+        exec "!time go run %"
+    elseif &filetype == 'mkd'
+        exec "!~/.vim/markdown.pl % > %.html &"
+        exec "!firefox %.html &"
+    endif
 endfunc
 

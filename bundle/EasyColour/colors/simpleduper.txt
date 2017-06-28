@@ -10,9 +10,11 @@ Colours:
   Green:#7cd42f
   Cyan:#52cca7
   Purple:#ad81ff
-  DarkBlue:#203345
+  DarkBlue:#203040
+  #DarkBlue:#203345
   MidBlue:#325e88
-  LightBlue:#2c96fd
+  LightBlue:#36648b
+  #LightBlue:#2c96fd
   PowderBlue:#bed6ff	
   Undef:#FF00FF
   Test:#000000
@@ -46,7 +48,7 @@ Dark:
   Character:@String
   Identifier:@String
   Function:Plum	
-  Method:Green
+  Method:LightBlue
   Class:LightBlue
   LocalVariable:LitGrey
   GlobalVariable:PinkRed
@@ -56,7 +58,7 @@ Dark:
   Include:@PreProc
   PreCondit:@PreProc
   Exception:@PreProc
-  Define,Macro:Cyan,Style=Bold
+  Define,Macro:Turqoise,Style=Bold
   Field:LitGrey
   Interface:Undef
   Package:PinkRed
@@ -66,7 +68,7 @@ Dark:
   NonIndentTabError:SP=LightYellow,Style=Undercurl
   Todo:LitGrey,LightBlue
   FoldColumn:@Todo
-  VertSplit:BlueGreen
+  VertSplit:LightBlue
   StatusLine:MidGrey,BlueGreen
   StatusLineNC:@StatusLine
   SignColumn:MidGrey,DarkBlue

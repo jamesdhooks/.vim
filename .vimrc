@@ -12,6 +12,7 @@ set noshowmode
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
@@ -59,13 +60,22 @@ if has('win32') || has('mac')
     Plugin 'tpope/vim-dispatch.git'
 endif
 
+" Fullscreen
+Plugin 'gvimfullscreen_win32'
+
+" Tabbar
+"Plugin 'Tabbar'
+Plugin 'drmingdrmer/vim-tabbar'
+
 call vundle#end()
 filetype plugin indent on
 
 " =============== General ================
 set nocompatible                "Be iMproved, required
 set guioptions-=T		"Remove toolbar
+set guioptions-=m   "Remove menubar
 set guioptions-=r		"Remove right hand scroll
+set guioptions-=L
 set number			"Line numbers
 set cursorline
 set backspace=indent,eol,start	"Allow backspace in insert mode
@@ -184,6 +194,10 @@ map <Leader>v <esc>:NERDTreeFromBookmark Vim<cr>
 " Open bookmark to Hood project
 map <Leader>h <esc>:NERDTreeFromBookmark Hood<cr>
 
+let NERDTreeIgnore=['\.meta$']
+
+hi Directory guifg=CadetBlue4
+
 " ================ Tag Highlight ===============
 map <Leader>u <esc>:UpdateTypesFile<cr>
 
@@ -192,8 +206,11 @@ map <Leader>s <esc>:Gstatus<cr>
 map <Leader>a <esc>:Git add -u<cr>:Gcommit<cr>
 map <Leader>p <esc>:Git push<cr>
 
+" ================ FullScreen ================
+map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR> 
+
 " ================ Auto Pairs ================
-"let g:AutoPairsShortcutFastWrap='<Leader>e'
+"let g:AutoPairsShortcutFastWrap='<Leader-E>'
 
 " ================ Rainbow ================
 let g:rbpt_loadcmd_toggle = 0
@@ -202,7 +219,15 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+" ================ Tab bar ================
+hi TabLineFill guifg=gray22 guibg=grey
+hi TabLine     guifg=gray90 guibg=SteelBlue4
+hi TabLineSel  guifg=gray90 guibg=PaleTurquoise4
+"hi TabLineSel  guifg=gray90 guibg=CadetBlue4
+
 " ================ Airline ================
+"let g:airline#extensions#tabline#enabled = 1
+
 let g:airline_powerline_fonts=1
 let g:airline_theme = 'raven'
 if !exists('g:airline_symbols')
@@ -275,23 +300,33 @@ hi SyntasticStyleWarningSign ctermfg=100 ctermbg=100 guifg=#2c96fd guibg=#203345
 hi SyntasticStyleWarningLine ctermfg=100 ctermbg=100 guibg=#39382f
 
 " ================ You Complete Me ================
-"let g:ycm_min_num_of_chars_for_completion = 3
-"let g:ycm_min_num_identifier_candidate_chars = 3
-" Completion comes with . or <C-Space>
-"let g:ycm_auto_trigger = 0
+let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_min_num_identifier_candidate_chars = 3
+" Completion comes with . or <C-Space> "let g:ycm_auto_trigger = 0
 "let g:ycm_filetype_whitelist = {'csharp':1, 'python':1, 'cpp':1}
 
 " ====== Make tabs be addressable via Apple+1 or 2 or 3, etc
 " Use numbers to pick the tab you want (like iTerm)
-map <silent> <D-1> :tabn 1<cr>
-map <silent> <D-2> :tabn 2<cr>
-map <silent> <D-3> :tabn 3<cr>
-map <silent> <D-4> :tabn 4<cr>
-map <silent> <D-5> :tabn 5<cr>
-map <silent> <D-6> :tabn 6<cr>
-map <silent> <D-7> :tabn 7<cr>
-map <silent> <D-8> :tabn 8<cr>
-map <silent> <D-9> :tabn 9<cr>
+map <silent> <C-1> 1gt<cr>
+map <silent> <C-2> 2gt<cr>
+map <silent> <C-3> :tabn 3<cr>
+map <silent> <C-4> :tabn 4<cr>
+map <silent> <C-5> :tabn 5<cr>
+map <silent> <C-6> :tabn 6<cr>
+map <silent> <C-7> :tabn 7<cr>
+map <silent> <C-8> :tabn 8<cr>
+map <silent> <C-9> :tabn 9<cr>
+
+map <silent> <C-t> :tabnew<cr>
+
+" CTRL-Tab is next tab
+noremap <C-Tab> :<C-U>tabnext<CR>
+inoremap <C-Tab> <C-\><C-N>:tabnext<CR>
+cnoremap <C-Tab> <C-C>:tabnext<CR>
+" CTRL-SHIFT-Tab is previous tab
+noremap <C-S-Tab> :<C-U>tabprevious<CR>
+inoremap <C-S-Tab> <C-\><C-N>:tabprevious<CR>
+cnoremap <C-S-Tab> <C-C>:tabprevious<CR>
 
 " ================ Java Compile ================
 map <F5> :call SilentCompilePackage()<CR>

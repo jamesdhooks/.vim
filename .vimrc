@@ -148,7 +148,7 @@ set sidescroll=1
 
 " ================ Visual Settings ================
 "colorscheme superduper
-if has('win32') || has('max')
+if has('win32') || has('mac')
     colorscheme simpleduper
 else
     colorscheme molokai

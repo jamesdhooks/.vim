@@ -110,6 +110,7 @@ set nowb
 set autoindent
 set smartindent
 set smarttab
+set expandtab
 if has('win32') || has('max')
     set shiftwidth=2
     set softtabstop=2
@@ -119,7 +120,8 @@ else
     set softtabstop=4
     set tabstop=4
 endif
-set expandtab
+" Auto indent
+map <leader>g mzgg=G`z
 
 " Display tabs and trailing spaces visually
 "set list listchars=tab:\ \ ,trail:ÃÂ·
@@ -182,6 +184,7 @@ nnoremap <F9> :!python -B %<cr>
 " Strips whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
+"
 " ================ Nerd Tree ================
 " Open Nerd Tree with <Leader>n
 map <Leader>n <esc>:NERDTreeToggle<cr>
@@ -210,7 +213,16 @@ map <Leader>p <esc>:Git push<cr>
 map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR> 
 
 " ================ Auto Pairs ================
-"let g:AutoPairsShortcutFastWrap='<Leader-E>'
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+
+set timeout ttimeoutlen=50
+"let g:AutoPairsShortcutFastWrap='<C-f>'
+
 
 " ================ Rainbow ================
 let g:rbpt_loadcmd_toggle = 0
@@ -227,6 +239,7 @@ hi TabLineSel  guifg=gray90 guibg=PaleTurquoise4
 
 " ================ Airline ================
 "let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
 
 let g:airline_powerline_fonts=1
 let g:airline_theme = 'raven'

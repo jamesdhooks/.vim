@@ -54,7 +54,7 @@ if has('win32') || has('mac')
     Plugin 'EasyColour'
     "You complete me
     Plugin 'Valloric/YouCompleteMe'
-    
+
     "Omni & dispath
     Plugin 'OmniSharp/omnisharp-vim'
     Plugin 'tpope/vim-dispatch.git'
@@ -110,10 +110,10 @@ set nowb
 set autoindent
 set smartindent
 set smarttab
-if has('win32') || has('max')
-    set shiftwidth=2
-    set softtabstop=2
-    set tabstop=2
+if has('win32') || has('mac')
+    set shiftwidth=4
+    set softtabstop=4
+    set tabstop=4
 else
     set shiftwidth=4
     set softtabstop=4
@@ -177,10 +177,12 @@ set autochdir
 
 " ================ Python ================
 nnoremap <F9> :!python -B %<cr>
+nnoremap <leader>5 :!python3 %:t <cr>
 
 " ================ Whitespace ================
 " Strips whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <leader>g <esc>gg=G``<cr>
 
 " ================ Nerd Tree ================
 " Open Nerd Tree with <Leader>n
@@ -207,7 +209,7 @@ map <Leader>a <esc>:Git add -u<cr>:Gcommit<cr>
 map <Leader>p <esc>:Git push<cr>
 
 " ================ FullScreen ================
-map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR> 
+map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 
 " ================ Auto Pairs ================
 "let g:AutoPairsShortcutFastWrap='<Leader-E>'
@@ -265,13 +267,13 @@ let g:airline_symbols.linenr = ''
 " ================ Synastic ================
 map <Leader>c <esc>:SyntasticCheck<cr>
 "mark syntax errors with :signs
-let g:syntastic_enable_signs=1
+let g:syntastic_enable_signs=0
 "automatically jump to the error when saving the file
 let g:syntastic_auto_jump=0
 "show the error list automatically
 "let g:syntastic_auto_loc_list=1
 "don't care about warnings
-"let g:syntastic_quiet_messages={'level': 'warnings'}
+let g:syntastic_quiet_messages={'level': 'warnings'}
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "set statusline+=%#warningmsg#
@@ -281,6 +283,7 @@ let g:syntastic_check_on_wq = 0
 "let b:syntastic_skip_checks = 0
 
 " Checkers
+let g:syntastic_python_checker_args = '--ignore=E225'
 let g:syntastic_java_checkers = ['checkstyle', 'javac']
 let g:syntastic_java_checkstyle_classpath = '~/.vim/checkstyle-7.5-all.jar'
 let g:syntastic_java_checkstyle_conf_file = '~/.vim/checks.xml'

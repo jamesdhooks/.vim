@@ -33,7 +33,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'TagHighlight'
 
 " Syntax highlighting
-Plugin 'syntastic'
+"Plugin 'syntastic'
 
 " Git wrapper
 Plugin 'fugitive.vim'
@@ -56,12 +56,12 @@ if has('win32') || has('mac')
     Plugin 'Valloric/YouCompleteMe'
     
     "Omni & dispath
-    Plugin 'OmniSharp/omnisharp-vim'
-    Plugin 'tpope/vim-dispatch.git'
+    "Plugin 'OmniSharp/omnisharp-vim'
+    "Plugin 'tpope/vim-dispatch.git'
 endif
 
 " Fullscreen
-Plugin 'gvimfullscreen_win32'
+"Plugin 'gvimfullscreen_win32'
 
 " Tabbar
 "Plugin 'Tabbar'
@@ -111,14 +111,14 @@ set autoindent
 set smartindent
 set smarttab
 set expandtab
-if has('win32') || has('max')
-    set shiftwidth=2
-    set softtabstop=2
-    set tabstop=2
-else
+if 1 && (has('win32') || has('mac'))
     set shiftwidth=4
     set softtabstop=4
     set tabstop=4
+else
+    set shiftwidth=2
+    set softtabstop=2
+    set tabstop=2
 endif
 " Auto indent
 map <leader>g mzgg=G`z
@@ -127,6 +127,8 @@ map <leader>g mzgg=G`z
 "set list listchars=tab:\ \ ,trail:ÃÂ·
 set wrap       "Wrap lines
 set linebreak    "Wrap lines at convenient points
+
+" ================ Autochdr ================
 
 " ================ Completion =======================
 set wildmode=list:longest
@@ -176,6 +178,7 @@ nnoremap <C-j> <C-w>j
 
 " ================ Directory ================
 set autochdir
+map <Leader>e :silent !explorer %:p:h:gs?\/?\\\\\\?<CR>
 
 " ================ Python ================
 nnoremap <F9> :!python -B %<cr>
@@ -312,7 +315,13 @@ let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes':['java']}
 hi SyntasticStyleWarningSign ctermfg=100 ctermbg=100 guifg=#2c96fd guibg=#203345
 hi SyntasticStyleWarningLine ctermfg=100 ctermbg=100 guibg=#39382f
 
+" ================ Python ================ 
+let $PYTHONHOME='C:\Python27'
+let $PYTHONPATH='C:\Python27\Lib'
+
 " ================ You Complete Me ================
+"let g:ycm_python_binary_path='\C:\Python36-32\'
+"let g:ycm_path_to_python_interpreter='\C:\Python36-32\'
 let g:ycm_min_num_of_chars_for_completion = 3
 let g:ycm_min_num_identifier_candidate_chars = 3
 " Completion comes with . or <C-Space> "let g:ycm_auto_trigger = 0

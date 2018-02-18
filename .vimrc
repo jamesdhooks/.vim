@@ -54,7 +54,7 @@ if has('win32') || has('mac')
     Plugin 'EasyColour'
     "You complete me
     Plugin 'Valloric/YouCompleteMe'
-    
+
     "Omni & dispath
     "Plugin 'OmniSharp/omnisharp-vim'
     "Plugin 'tpope/vim-dispatch.git'
@@ -111,7 +111,7 @@ set autoindent
 set smartindent
 set smarttab
 set expandtab
-if 1 && (has('win32') || has('mac'))
+if has('win32') || has('mac')
     set shiftwidth=4
     set softtabstop=4
     set tabstop=4
@@ -120,15 +120,10 @@ else
     set softtabstop=2
     set tabstop=2
 endif
-" Auto indent
-map <leader>g mzgg=G`z
-
-" Display tabs and trailing spaces visually
-"set list listchars=tab:\ \ ,trail:ÃÂ·
 set wrap       "Wrap lines
 set linebreak    "Wrap lines at convenient points
-
-" ================ Autochdr ================
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:ÃÂ·
 
 " ================ Completion =======================
 set wildmode=list:longest
@@ -152,7 +147,7 @@ set sidescroll=1
 
 " ================ Visual Settings ================
 "colorscheme superduper
-if has('win32') || has('max')
+if has('win32') || has('mac')
     colorscheme simpleduper
 else
     colorscheme molokai
@@ -165,6 +160,17 @@ elseif has('mac')
     set guifont=DejaVu_Sans_Mono_for_Powerline:h12
 endif
 
+" ================ Random commands ================
+" Auto indent
+map <leader>g mzgg=G`z 
+" Automatically change directory to current
+set autochdir
+" Open explorer at current file
+map <Leader>e :silent !explorer %:p:h:gs?\/?\\\\\\?<CR>
+" Strips whitespace
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <leader>g <esc>gg=G``<cr>
+
 " ================ Splitting and Movement ================
 " remap movement to move by column layout
 nnoremap j gj
@@ -176,18 +182,10 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 
-" ================ Directory ================
-set autochdir
-map <Leader>e :silent !explorer %:p:h:gs?\/?\\\\\\?<CR>
-
 " ================ Python ================
 nnoremap <F9> :!python -B %<cr>
+nnoremap <leader>5 :!python3 %:t <cr>
 
-" ================ Whitespace ================
-" Strips whitespace
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-
-"
 " ================ Nerd Tree ================
 " Open Nerd Tree with <Leader>n
 map <Leader>n <esc>:NERDTreeToggle<cr>
@@ -199,9 +197,7 @@ map <Leader>o <esc>:NERDTreeFromBookmark School<cr>
 map <Leader>v <esc>:NERDTreeFromBookmark Vim<cr>
 " Open bookmark to Hood project
 map <Leader>h <esc>:NERDTreeFromBookmark Hood<cr>
-
 let NERDTreeIgnore=['\.meta$']
-
 hi Directory guifg=CadetBlue4
 
 " ================ Tag Highlight ===============
@@ -213,7 +209,7 @@ map <Leader>a <esc>:Git add -u<cr>:Gcommit<cr>
 map <Leader>p <esc>:Git push<cr>
 
 " ================ FullScreen ================
-map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR> 
+map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 
 " ================ Auto Pairs ================
 let c='a'
@@ -225,7 +221,6 @@ endw
 
 set timeout ttimeoutlen=50
 "let g:AutoPairsShortcutFastWrap='<C-f>'
-
 
 " ================ Rainbow ================
 let g:rbpt_loadcmd_toggle = 0
@@ -281,13 +276,13 @@ let g:airline_symbols.linenr = ''
 " ================ Synastic ================
 map <Leader>c <esc>:SyntasticCheck<cr>
 "mark syntax errors with :signs
-let g:syntastic_enable_signs=1
+let g:syntastic_enable_signs=0
 "automatically jump to the error when saving the file
 let g:syntastic_auto_jump=0
 "show the error list automatically
 "let g:syntastic_auto_loc_list=1
 "don't care about warnings
-"let g:syntastic_quiet_messages={'level': 'warnings'}
+let g:syntastic_quiet_messages={'level': 'warnings'}
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "set statusline+=%#warningmsg#
@@ -297,6 +292,7 @@ let g:syntastic_check_on_wq = 0
 "let b:syntastic_skip_checks = 0
 
 " Checkers
+let g:syntastic_python_checker_args = '--ignore=E225'
 let g:syntastic_java_checkers = ['checkstyle', 'javac']
 let g:syntastic_java_checkstyle_classpath = '~/.vim/checkstyle-7.5-all.jar'
 let g:syntastic_java_checkstyle_conf_file = '~/.vim/checks.xml'

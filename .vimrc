@@ -123,7 +123,7 @@ endif
 set wrap       "Wrap lines
 set linebreak    "Wrap lines at convenient points
 " Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:ÃÂ·
+"set list listchars=tab:\ \ ,trail:ÃÂ·
 
 " ================ Completion =======================
 set wildmode=list:longest
